@@ -1,0 +1,41 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="6n/9go+xEEivx;ov$]F=">i</variable>
+  </variables>
+  <block type="controls_for" id="f]@bGr0K3p%k5JQ5(e(^" x="50" y="130">
+    <field name="VAR" id="6n/9go+xEEivx;ov$]F=">i</field>
+    <value name="FROM">
+      <block type="math_number" id="YVjQ@,7w7)zg=iVXCw]/">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+    <value name="TO">
+      <block type="math_number" id="K!s8knTjeV{2Bijf*@@s">
+        <field name="NUM">10</field>
+      </block>
+    </value>
+    <value name="BY">
+      <block type="math_number" id="b,)uKtpJo5t(s/(Q$mgq">
+        <field name="NUM">1</field>
+      </block>
+    </value>
+    <statement name="DO">
+      <block type="text_print" id="Y@O!E{$pT{TnS/shfVa6">
+        <value name="TEXT">
+          <block type="variables_get" id="RuF,mCCdi]SofOAv?S2o">
+            <field name="VAR" id="6n/9go+xEEivx;ov$]F=">i</field>
+          </block>
+        </value>
+        <next>
+          <block type="time_sleep" id="_Rhzu%EN{*.18[[Qx92k">
+            <value name="SECONDS">
+              <block type="math_number" id="Qr~$7056raA/bYe5MG|f">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
