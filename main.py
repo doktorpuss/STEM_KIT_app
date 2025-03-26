@@ -93,7 +93,8 @@ def run_python_code(code):
         if sys.platform == 'win32':
             process = subprocess.Popen(['start', 'cmd', '/k', f'python {temp_file} && del {temp_file}'], shell=True)
         else:
-            process = subprocess.Popen(['gnome-terminal', '--', 'bash', '-c', f'python3 {temp_file}; rm {temp_file}'])
+            subprocess.Popen(['lxterminal', '-e', f'bash -c "python3 {temp_file}; rm {temp_file}; exec bash"'])
+
         
         return "", ""
             
@@ -166,7 +167,7 @@ class BlocklyIDE(QMainWindow):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Python Blockly IDE")
-        self.setGeometry(100, 100, 1400, 800)
+        # self.setGeometry(100, 100, 1400, 800)
         
         # Create web view
         self.web_view = QWebEngineView()
@@ -182,6 +183,10 @@ class BlocklyIDE(QMainWindow):
         
         # Connect save completed signal
         file_dialog_handler.save_completed.connect(self.handle_save_completed)
+        
+        # Set window to fullscreen
+        # self.showFullScreen()
+        self.showMaximized()
     
     @pyqtSlot(dict)
     def handle_save_completed(self, result):

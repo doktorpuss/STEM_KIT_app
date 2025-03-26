@@ -84,7 +84,9 @@ sudo apt install -y nodejs
 
 4. Install Python dependencies:
 ```bash
-pip3 install flask flask-cors PyQt6
+pip3 install flask flask-cors
+sudo apt install python3-pyqt6 python3-pyqt6.qtwebengine
+
 ```
 
 5. Clone or download the source code:
@@ -134,6 +136,8 @@ sudo apt install -y nodejs
 
 4. Install Python dependencies:
 ```bash
+python -m venv STEM_app
+source STEM_app/bin/activate
 pip3 install flask flask-cors PyQt6
 ```
 

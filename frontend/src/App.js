@@ -9,7 +9,9 @@ import 'prismjs/components/prism-python';
 import 'prismjs/themes/prism-tomorrow.css';
 import './App.css';
 import './blocks/time_blocks';
-
+import './blocks/custom_block';
+import './blocks/LED_blocks';
+import './blocks/ADC_blocks';
 // Định nghĩa màu sắc cho các khối
 Blockly.HSV_SATURATION = 0.45;
 Blockly.HSV_VALUE = 0.65;
@@ -91,6 +93,32 @@ const INITIAL_TOOLBOX_JSON = {
       "name": "Functions",
       "categorystyle": "procedure_category",
       "custom": "PROCEDURE"
+    },
+    {
+      "kind": "category",
+      "name": "custom",
+      "categorystyle": "custom_category",
+      "contents": [
+        { "kind": "block", "type": "cuss1" },
+        { "kind": "block", "type": "cuss2" }
+      ]
+    },
+    {
+      "kind": "category",
+      "name": "LEDs",
+      "categorystyle": "LEDs_category",
+      "contents": [
+        { "kind": "block", "type": "LEDs_update" },
+        { "kind": "block", "type": "LEDs_clear" }
+      ]
+    },
+    {
+      "kind": "category",
+      "name": "ADC",
+      "categorystyle": "ADC_category",
+      "contents": [
+        { "kind": "block", "type": "Potentiometer_read" }
+      ]
     }
   ]
 };
@@ -118,7 +146,10 @@ const blocklyTheme = Blockly.Theme.defineTheme('custom', {
     'list_category': { 'colour': '260' },
     'time_category': { 'colour': '290' },
     'variable_category': { 'colour': '330' },
-    'procedure_category': { 'colour': '290' }
+    'procedure_category': { 'colour': '290' },
+    'custom_category': { 'colour': '300' },
+    'LEDs_category': { 'colour': '310' },
+    'ADC_category': { 'colour': '320' }
   }
 });
 
@@ -283,7 +314,14 @@ function App() {
                 wheel: true
               },
               theme: blocklyTheme,
-              media: '/lib/blockly/media/'
+              media: '/lib/blockly/media/',
+              toolbox: {
+                scrollbars: true,
+                position: 'start',
+                style: {
+                  width: '200px'
+                }
+              }
             }}
           />
         </div>

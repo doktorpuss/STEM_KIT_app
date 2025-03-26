@@ -269,6 +269,38 @@
 .blocklyToolboxDiv {
   background-color: #f8f8f8;
   border-right: 1px solid #ddd;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  max-height: 100vh !important;
+}
+
+/* Make category contents scrollable */
+.blocklyFlyout {
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+  scrollbar-width: thin;
+}
+
+/* Style the scrollbars */
+.blocklyToolboxDiv::-webkit-scrollbar,
+.blocklyFlyout::-webkit-scrollbar {
+  width: 8px;
+}
+
+.blocklyToolboxDiv::-webkit-scrollbar-track,
+.blocklyFlyout::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.blocklyToolboxDiv::-webkit-scrollbar-thumb,
+.blocklyFlyout::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.blocklyToolboxDiv::-webkit-scrollbar-thumb:hover,
+.blocklyFlyout::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .blocklyMainBackground {
