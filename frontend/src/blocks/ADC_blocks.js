@@ -6,9 +6,9 @@ import { pythonGenerator } from 'blockly/python';
 const Potentiometer_blocks = {
   'Potentiometer_read': {
     init: function() {
-      this.appendDummyInput()
-          .appendField('Read Potentiometer');
-      this.appendField(new Blockly.FieldDropdown([
+      const input = this.appendDummyInput();
+      input.appendField('Read Potentiometer');
+      input.appendField(new Blockly.FieldDropdown([
         ['1', '0'],
         ['2', '1'],
         ['3', '2'],
@@ -26,10 +26,10 @@ Object.keys(Potentiometer_blocks).forEach(blockType => {
 });
 
 // Register Python generators
-pythonGenerator['Potentiometer_read'] = function(block) {
-  // Add import time to definitions
+pythonGenerator.forBlock['Potentiometer_read'] = function(block) {
+  // Add import ADC to definitions
   pythonGenerator.definitions_['import_ADC'] = 'import ADC';
   
-  const Pot_ID = pythonGenerator.valueToCode(block, 'Pot_ID', pythonGenerator.ORDER_ATOMIC) || '0';
-  return `ADC_read(${Pot_ID})\n`;
+  const Pot_ID = block.getFieldValue('Pot_ID') || '0';
+  return [`ADC.read(${Pot_ID})`, pythonGenerator.ORDER_FUNCTION_CALL];
 };

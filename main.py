@@ -83,7 +83,7 @@ def serve(path):
     return send_from_directory(app.static_folder, 'index.html')
 
 def run_python_code(code):
-    temp_file = "temp_code.py"
+    temp_file = "../library/temp_code.py"
     try:
         # Write the code to a fixed temp file
         with open(temp_file, 'w') as f:

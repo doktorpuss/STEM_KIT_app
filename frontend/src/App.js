@@ -13,8 +13,8 @@ import './blocks/custom_block';
 import './blocks/LED_blocks';
 import './blocks/ADC_blocks';
 // Định nghĩa màu sắc cho các khối
-Blockly.HSV_SATURATION = 0.45;
-Blockly.HSV_VALUE = 0.65;
+Blockly.utils.colour.setHsvSaturation(0.45);
+Blockly.utils.colour.setHsvValue(0.65);
 
 const INITIAL_TOOLBOX_JSON = {
   "kind": "categoryToolbox",
@@ -109,7 +109,8 @@ const INITIAL_TOOLBOX_JSON = {
       "categorystyle": "LEDs_category",
       "contents": [
         { "kind": "block", "type": "LEDs_update" },
-        { "kind": "block", "type": "LEDs_clear" }
+        { "kind": "block", "type": "LEDs_clear" },
+        { "kind": "block", "type": "LEDs_update_by_number" }
       ]
     },
     {
@@ -149,7 +150,7 @@ const blocklyTheme = Blockly.Theme.defineTheme('custom', {
     'procedure_category': { 'colour': '290' },
     'custom_category': { 'colour': '300' },
     'LEDs_category': { 'colour': '310' },
-    'ADC_category': { 'colour': '320' }
+    'ADC_category': { 'colour': '320' },
   }
 });
 

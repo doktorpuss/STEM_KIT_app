@@ -2,7 +2,7 @@ import Blockly from 'blockly/core';
 import 'blockly/blocks';
 import { pythonGenerator } from 'blockly/python';
 
-// Define time blocks
+// Define LED blocks
 const LEDs_blocks = {
   'LEDs_update': {
     init: function() {
@@ -29,6 +29,21 @@ const LEDs_blocks = {
       this.setTooltip('Update LED state');
     }
   },
+  'LEDs_update_by_number': {
+    init: function() {
+      this.appendValueInput('LED_NUMBER')
+          .setCheck('Number')
+          .appendField('LED');
+      this.appendValueInput('state')
+          .setCheck('Boolean')
+          .appendField('state');
+      this.setInputsInline(true);
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(230);
+      this.setTooltip('Update LED state by number');
+    }
+  },
   'LEDs_clear': {
     init: function() {
       this.appendDummyInput()
@@ -46,9 +61,9 @@ Object.keys(LEDs_blocks).forEach(blockType => {
   Blockly.Blocks[blockType] = LEDs_blocks[blockType];
 });
 
-// Register Python generators
-pythonGenerator['LEDs_update'] = function(block) {
-  // Add import time to definitions
+// Register Python generators using the new forBlock API
+pythonGenerator.forBlock['LEDs_update'] = function(block) {
+  // Add import LEDs to definitions
   pythonGenerator.definitions_['import_LEDs'] = 'import LEDs';
   
   const led_id = block.getFieldValue('LED_ID');
@@ -56,8 +71,17 @@ pythonGenerator['LEDs_update'] = function(block) {
   return `LEDs.update(${led_id},${state})\n`;
 };
 
-pythonGenerator['LEDs_clear'] = function(block) {
-  // Add import time to definitions
+pythonGenerator.forBlock['LEDs_update_by_number'] = function(block) {
+  // Add import LEDs to definitions
+  pythonGenerator.definitions_['import_LEDs'] = 'import LEDs';
+  
+  const led_number = pythonGenerator.valueToCode(block, 'LED_NUMBER', pythonGenerator.ORDER_ATOMIC) || '0';
+  const state = pythonGenerator.valueToCode(block, 'state', pythonGenerator.ORDER_ATOMIC) || 'False';
+  return `LEDs.update(${led_number},${state})\n`;
+};
+
+pythonGenerator.forBlock['LEDs_clear'] = function(block) {
+  // Add import LEDs to definitions
   pythonGenerator.definitions_['import_LEDs'] = 'import LEDs';
   
   return `LEDs.clear()\n`;
