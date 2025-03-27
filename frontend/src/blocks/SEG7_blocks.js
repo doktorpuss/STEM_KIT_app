@@ -34,7 +34,7 @@ Blockly.Blocks['SEG7_update'] = {
     this.appendValueInput('LED')
         .setCheck('Number')
         .appendField("Digit");
-    this.appendValueInput('LED')
+    this.appendValueInput('VALUE')
         .setCheck('Number')
         .appendField("play number");
     this.appendDummyInput()
@@ -87,14 +87,14 @@ pythonGenerator.forBlock['SEG7_update'] = function(block) {
   // Add import SEG7 to definitions
   pythonGenerator.definitions_['import_SEG7'] = 'import SEG7';
   var value = pythonGenerator.valueToCode(block, 'VALUE', pythonGenerator.ORDER_ATOMIC) || '0';
-  var led = block.getFieldValue('LED');
+  var led = pythonGenerator.valueToCode(block, 'LED', pythonGenerator.ORDER_ATOMIC) || '0';
   return `SEG7.update(${value}, ${led})\n`;
 };
 
 pythonGenerator.forBlock['SEG7_dot'] = function(block) {
   // Add import SEG7 to definitions
   pythonGenerator.definitions_['import_SEG7'] = 'import SEG7';
-  var led = block.getFieldValue('LED');
-  var mode = block.getFieldValue('MODE');
+  var led = pythonGenerator.valueToCode(block, 'LED', pythonGenerator.ORDER_ATOMIC) || '0';
+  var mode = pythonGenerator.valueToCode(block, 'MODE', pythonGenerator.ORDER_ATOMIC) || '0';
   return `SEG7.dot_update(${led}, ${mode})\n`;
 }; 

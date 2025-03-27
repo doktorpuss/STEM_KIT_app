@@ -1,0 +1,153 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="LEDs_clear" id="2067,S9!W*PbZrtTV9RN" x="-270" y="-210">
+    <next>
+      <block type="SEG7_ss" id="3L[gH#gaAZWK{,Er?!o(">
+        <field name="STATE">START</field>
+        <next>
+          <block type="SEG7_update" id="SW=gXP2.gR19TYaAB$/Z">
+            <value name="LED">
+              <block type="math_number" id="TL#[)47Xf9Hv?Z2U.bCn">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <value name="VALUE">
+              <block type="math_number" id="zN0DyC0wdTPUpM?sV$b~">
+                <field name="NUM">4</field>
+              </block>
+            </value>
+            <next>
+              <block type="SEG7_update" id="lUR:S!Zy!LW`y)B)LLPQ">
+                <value name="LED">
+                  <block type="math_number" id="L@GDdLy$7f#fFNDNGJH1">
+                    <field name="NUM">2</field>
+                  </block>
+                </value>
+                <value name="VALUE">
+                  <block type="math_number" id="Qh2Ck3.Uw.K=Rd1@BMP0">
+                    <field name="NUM">3</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="SEG7_update" id="p[D{TTuqC.WK@_6^GKdD">
+                    <value name="LED">
+                      <block type="math_number" id="jymK#Y3vV{CY(p5LV%-1">
+                        <field name="NUM">3</field>
+                      </block>
+                    </value>
+                    <value name="VALUE">
+                      <block type="math_number" id="7(zErT2%~6(IE5`vdG5E">
+                        <field name="NUM">2</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="SEG7_update" id="PM)l50FLI*.h[7H=`gjN">
+                        <value name="LED">
+                          <block type="math_number" id="zgBr~JAT!lRNlA(cM)[B">
+                            <field name="NUM">4</field>
+                          </block>
+                        </value>
+                        <value name="VALUE">
+                          <block type="math_number" id="VB`TGRkJY)Kq?5J@UB_g">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="SEG7_dot" id="fe?3:TR^@Vv_1hHeUTO3">
+                            <value name="LED">
+                              <block type="math_number" id="p0Uu{FB$Wh##rHw?qnk@">
+                                <field name="NUM">2</field>
+                              </block>
+                            </value>
+                            <value name="MODE">
+                              <block type="math_number" id="A_%Y;ZHNBn4mWzQL9-aX">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="SEG7_dot" id="m8eTm0HUGx{84D51~sVE">
+                                <value name="LED">
+                                  <block type="math_number" id="~y;?S%TAwNDK~}sAU=YH">
+                                    <field name="NUM">4</field>
+                                  </block>
+                                </value>
+                                <value name="MODE">
+                                  <block type="math_number" id="rMKD0ZZyL|19p_`51nfY">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="time_sleep" id=",G7o{nab;MDOq,C]Le3x">
+                                    <value name="SECONDS">
+                                      <block type="math_number" id="go+5={wPMngwGDg,KBYM">
+                                        <field name="NUM">5</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="SEG7_ss" id="(1i6LiZsoD8DO/D9tPnz">
+                                        <field name="STATE">START</field>
+                                        <next>
+                                          <block type="custom_while" id="{Op[?,|`ppBOUnb{{s:k">
+                                            <value name="CONDITION">
+                                              <block type="logic_boolean" id="|e_tb-9SU#cZ_~|(Fm/@">
+                                                <field name="BOOL">TRUE</field>
+                                              </block>
+                                            </value>
+                                            <statement name="DO">
+                                              <block type="LEDs_update_by_number" id="S7)vgrbV|3bek{L!8YCf">
+                                                <value name="LED_NUMBER">
+                                                  <block type="math_number" id="U6r6K:xXR?ZXBFt$b}-t">
+                                                    <field name="NUM">1</field>
+                                                  </block>
+                                                </value>
+                                                <value name="state">
+                                                  <block type="logic_boolean" id="Pi$}zJPy@Uot_d7^E[bF">
+                                                    <field name="BOOL">FALSE</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="time_sleep" id=";7OdehWy[~g0sQN6;;wO">
+                                                    <value name="SECONDS">
+                                                      <block type="math_number" id="R?m$i_(kK+;XT{MQ5^@j">
+                                                        <field name="NUM">1</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="LEDs_update_by_number" id="6a;9M{,`hnmD(jZ:gj/f">
+                                                        <value name="LED_NUMBER">
+                                                          <block type="math_number" id="a{S.Sah|*(RRWG=)MTcG">
+                                                            <field name="NUM">1</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="state">
+                                                          <block type="logic_boolean" id="^.;h+4{7o[C=5*+WD9tH">
+                                                            <field name="BOOL">TRUE</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </statement>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

@@ -1,0 +1,475 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="LEDs_clear" id="2067,S9!W*PbZrtTV9RN" x="-270" y="-210">
+    <next>
+      <block type="SEG7_ss" id="3L[gH#gaAZWK{,Er?!o(">
+        <field name="STATE">START</field>
+        <next>
+          <block type="SEG7_update" id="SW=gXP2.gR19TYaAB$/Z">
+            <value name="LED">
+              <block type="math_number" id="TL#[)47Xf9Hv?Z2U.bCn">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <value name="VALUE">
+              <block type="math_number" id="zN0DyC0wdTPUpM?sV$b~">
+                <field name="NUM">4</field>
+              </block>
+            </value>
+            <next>
+              <block type="SEG7_update" id="lUR:S!Zy!LW`y)B)LLPQ">
+                <value name="LED">
+                  <block type="math_number" id="L@GDdLy$7f#fFNDNGJH1">
+                    <field name="NUM">2</field>
+                  </block>
+                </value>
+                <value name="VALUE">
+                  <block type="math_number" id="Qh2Ck3.Uw.K=Rd1@BMP0">
+                    <field name="NUM">3</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="SEG7_update" id="p[D{TTuqC.WK@_6^GKdD">
+                    <value name="LED">
+                      <block type="math_number" id="jymK#Y3vV{CY(p5LV%-1">
+                        <field name="NUM">3</field>
+                      </block>
+                    </value>
+                    <value name="VALUE">
+                      <block type="math_number" id="7(zErT2%~6(IE5`vdG5E">
+                        <field name="NUM">2</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="SEG7_update" id="PM)l50FLI*.h[7H=`gjN">
+                        <value name="LED">
+                          <block type="math_number" id="zgBr~JAT!lRNlA(cM)[B">
+                            <field name="NUM">4</field>
+                          </block>
+                        </value>
+                        <value name="VALUE">
+                          <block type="math_number" id="VB`TGRkJY)Kq?5J@UB_g">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="SEG7_dot" id="fe?3:TR^@Vv_1hHeUTO3">
+                            <value name="LED">
+                              <block type="math_number" id="p0Uu{FB$Wh##rHw?qnk@">
+                                <field name="NUM">2</field>
+                              </block>
+                            </value>
+                            <value name="MODE">
+                              <block type="math_number" id="A_%Y;ZHNBn4mWzQL9-aX">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="SEG7_dot" id="m8eTm0HUGx{84D51~sVE">
+                                <value name="LED">
+                                  <block type="math_number" id="~y;?S%TAwNDK~}sAU=YH">
+                                    <field name="NUM">4</field>
+                                  </block>
+                                </value>
+                                <value name="MODE">
+                                  <block type="math_number" id="rMKD0ZZyL|19p_`51nfY">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="time_sleep" id=",G7o{nab;MDOq,C]Le3x">
+                                    <value name="SECONDS">
+                                      <block type="math_number" id="go+5={wPMngwGDg,KBYM">
+                                        <field name="NUM">5</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="SEG7_ss" id="(1i6LiZsoD8DO/D9tPnz">
+                                        <field name="STATE">START</field>
+                                        <next>
+                                          <block type="custom_while" id="{Op[?,|`ppBOUnb{{s:k">
+                                            <value name="CONDITION">
+                                              <block type="logic_boolean" id="|e_tb-9SU#cZ_~|(Fm/@">
+                                                <field name="BOOL">TRUE</field>
+                                              </block>
+                                            </value>
+                                            <statement name="DO">
+                                              <block type="LEDs_update_by_number" id="S7)vgrbV|3bek{L!8YCf">
+                                                <value name="LED_NUMBER">
+                                                  <block type="math_number" id="U6r6K:xXR?ZXBFt$b}-t">
+                                                    <field name="NUM">1</field>
+                                                  </block>
+                                                </value>
+                                                <value name="state">
+                                                  <block type="logic_boolean" id="Pi$}zJPy@Uot_d7^E[bF">
+                                                    <field name="BOOL">FALSE</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="time_sleep" id=";7OdehWy[~g0sQN6;;wO">
+                                                    <value name="SECONDS">
+                                                      <block type="math_number" id="R?m$i_(kK+;XT{MQ5^@j">
+                                                        <field name="NUM">1</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="LEDs_update_by_number" id="6a;9M{,`hnmD(jZ:gj/f">
+                                                        <value name="LED_NUMBER">
+                                                          <block type="math_number" id="a{S.Sah|*(RRWG=)MTcG">
+                                                            <field name="NUM">1</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="state">
+                                                          <block type="logic_boolean" id="^.;h+4{7o[C=5*+WD9tH">
+                                                            <field name="BOOL">TRUE</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="custom_while" id="@yqCnCBI9;F)2:/}fNpg">
+                                                            <value name="CONDITION">
+                                                              <block type="logic_boolean" id="pea8j6BY%BUrFiE@*FEa">
+                                                                <field name="BOOL">TRUE</field>
+                                                              </block>
+                                                            </value>
+                                                            <statement name="DO">
+                                                              <block type="LEDs_update_by_number" id="}R%tqO!D#*tKnTZoHCJj">
+                                                                <value name="LED_NUMBER">
+                                                                  <block type="math_number" id="J`.$q!mY#m4v~sE2)D07">
+                                                                    <field name="NUM">1</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="state">
+                                                                  <block type="logic_boolean" id="%L#X,?f3.q2bB(1Z?FVL">
+                                                                    <field name="BOOL">FALSE</field>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="time_sleep" id="obNeFa5YVAY*25jSy^;c">
+                                                                    <value name="SECONDS">
+                                                                      <block type="math_number" id="gFh:.;PS:5/V!*v#x`{1">
+                                                                        <field name="NUM">1</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <next>
+                                                                      <block type="LEDs_update_by_number" id="Mzv=)z)?t?j%WiTu^chZ">
+                                                                        <value name="LED_NUMBER">
+                                                                          <block type="math_number" id="NjuiUHLM+`7bxY4/,6`b">
+                                                                            <field name="NUM">1</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <value name="state">
+                                                                          <block type="logic_boolean" id="}D^S-BI9vO=cxGy7?7@{">
+                                                                            <field name="BOOL">TRUE</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <next>
+                                                                          <block type="custom_while" id="n,3+MV}1jsc.)b~p^6y8">
+                                                                            <value name="CONDITION">
+                                                                              <block type="logic_boolean" id=":Bp%7eU]$/dU:=s?*3v;">
+                                                                                <field name="BOOL">TRUE</field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <statement name="DO">
+                                                                              <block type="LEDs_update_by_number" id="jM0)Qu|$|7|5[?^kW!+a">
+                                                                                <value name="LED_NUMBER">
+                                                                                  <block type="math_number" id="c=NJRA[C^%!qt4!U{gZ:">
+                                                                                    <field name="NUM">1</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                                <value name="state">
+                                                                                  <block type="logic_boolean" id="yYLI7;S6BWRO|XP#9iT.">
+                                                                                    <field name="BOOL">FALSE</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                                <next>
+                                                                                  <block type="time_sleep" id="E_[FUg]9V4K:R7M*NrFM">
+                                                                                    <value name="SECONDS">
+                                                                                      <block type="math_number" id="}]r%XclOkns;B6EJaX`:">
+                                                                                        <field name="NUM">1</field>
+                                                                                      </block>
+                                                                                    </value>
+                                                                                    <next>
+                                                                                      <block type="LEDs_update_by_number" id="KDV/_WWsF{0K(Tw}FtLG">
+                                                                                        <value name="LED_NUMBER">
+                                                                                          <block type="math_number" id=";WWWj=`l!G#fvzYNGjDd">
+                                                                                            <field name="NUM">1</field>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                        <value name="state">
+                                                                                          <block type="logic_boolean" id="oSt]::[U*kdU=:/A*H9Y">
+                                                                                            <field name="BOOL">TRUE</field>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                        <next>
+                                                                                          <block type="custom_while" id="jsiOO#o(!Q$RHZ[_(rTo">
+                                                                                            <value name="CONDITION">
+                                                                                              <block type="logic_boolean" id="Su*5%!s@.4^9q|T:EJNF">
+                                                                                                <field name="BOOL">TRUE</field>
+                                                                                              </block>
+                                                                                            </value>
+                                                                                            <statement name="DO">
+                                                                                              <block type="LEDs_update_by_number" id="m}-t,vli,rxF^iBbE04t">
+                                                                                                <value name="LED_NUMBER">
+                                                                                                  <block type="math_number" id="z|huzdeH/zNJ}fcla]@3">
+                                                                                                    <field name="NUM">1</field>
+                                                                                                  </block>
+                                                                                                </value>
+                                                                                                <value name="state">
+                                                                                                  <block type="logic_boolean" id="tJb}RU(~l1$6dvJtSFQY">
+                                                                                                    <field name="BOOL">FALSE</field>
+                                                                                                  </block>
+                                                                                                </value>
+                                                                                                <next>
+                                                                                                  <block type="time_sleep" id="1[+zpr:c3jR-cRo0~!#)">
+                                                                                                    <value name="SECONDS">
+                                                                                                      <block type="math_number" id="(OhlENFE=aKP+IYHg;(B">
+                                                                                                        <field name="NUM">1</field>
+                                                                                                      </block>
+                                                                                                    </value>
+                                                                                                    <next>
+                                                                                                      <block type="LEDs_update_by_number" id="5ZAY-KQ-9:~PChh/Nqx5">
+                                                                                                        <value name="LED_NUMBER">
+                                                                                                          <block type="math_number" id="|Js!h(pf9vH::}k_PL#X">
+                                                                                                            <field name="NUM">1</field>
+                                                                                                          </block>
+                                                                                                        </value>
+                                                                                                        <value name="state">
+                                                                                                          <block type="logic_boolean" id="`4qLG#Xrs)I^iIe[69^M">
+                                                                                                            <field name="BOOL">TRUE</field>
+                                                                                                          </block>
+                                                                                                        </value>
+                                                                                                        <next>
+                                                                                                          <block type="custom_while" id="CahBQM#GpLqDg3S(#M[K">
+                                                                                                            <value name="CONDITION">
+                                                                                                              <block type="logic_boolean" id="#_Obl81+[Qjgm$tG8,}B">
+                                                                                                                <field name="BOOL">TRUE</field>
+                                                                                                              </block>
+                                                                                                            </value>
+                                                                                                            <statement name="DO">
+                                                                                                              <block type="LEDs_update_by_number" id="8nT0BZ8$/T6wo!fbYgd-">
+                                                                                                                <value name="LED_NUMBER">
+                                                                                                                  <block type="math_number" id="l^+]%7}kCa)Ox6f4xxpO">
+                                                                                                                    <field name="NUM">1</field>
+                                                                                                                  </block>
+                                                                                                                </value>
+                                                                                                                <value name="state">
+                                                                                                                  <block type="logic_boolean" id="0^E]LxC=[/Y27Y.H_T!9">
+                                                                                                                    <field name="BOOL">FALSE</field>
+                                                                                                                  </block>
+                                                                                                                </value>
+                                                                                                                <next>
+                                                                                                                  <block type="time_sleep" id="oxPq+H|~}Wj?dYoeM^a*">
+                                                                                                                    <value name="SECONDS">
+                                                                                                                      <block type="math_number" id="na+biB|xKD_~]EgZk^]v">
+                                                                                                                        <field name="NUM">1</field>
+                                                                                                                      </block>
+                                                                                                                    </value>
+                                                                                                                    <next>
+                                                                                                                      <block type="LEDs_update_by_number" id="}vYuWYW97!upiZhJ09{%">
+                                                                                                                        <value name="LED_NUMBER">
+                                                                                                                          <block type="math_number" id="9[T/WhlP%B-W/k=TzNqo">
+                                                                                                                            <field name="NUM">1</field>
+                                                                                                                          </block>
+                                                                                                                        </value>
+                                                                                                                        <value name="state">
+                                                                                                                          <block type="logic_boolean" id="~;AH*xN@{csXl(Ad!^xr">
+                                                                                                                            <field name="BOOL">TRUE</field>
+                                                                                                                          </block>
+                                                                                                                        </value>
+                                                                                                                        <next>
+                                                                                                                          <block type="custom_while" id="Aa74KNR%[E+u`e,)+H09">
+                                                                                                                            <value name="CONDITION">
+                                                                                                                              <block type="logic_boolean" id="c+:{08nD;J:gb0c/Z%0b">
+                                                                                                                                <field name="BOOL">TRUE</field>
+                                                                                                                              </block>
+                                                                                                                            </value>
+                                                                                                                            <statement name="DO">
+                                                                                                                              <block type="LEDs_update_by_number" id="Nu(P8p;C-5e_t=;qYK{t">
+                                                                                                                                <value name="LED_NUMBER">
+                                                                                                                                  <block type="math_number" id="1lyPNXs]dP_e:l|?Y}$@">
+                                                                                                                                    <field name="NUM">1</field>
+                                                                                                                                  </block>
+                                                                                                                                </value>
+                                                                                                                                <value name="state">
+                                                                                                                                  <block type="logic_boolean" id="@_^X:VdTPBoI)aW48F|V">
+                                                                                                                                    <field name="BOOL">FALSE</field>
+                                                                                                                                  </block>
+                                                                                                                                </value>
+                                                                                                                                <next>
+                                                                                                                                  <block type="time_sleep" id="stp~jr]kR)UWb6G|HYB[">
+                                                                                                                                    <value name="SECONDS">
+                                                                                                                                      <block type="math_number" id="f~A3L)dcWY!G:eMlyn2R">
+                                                                                                                                        <field name="NUM">1</field>
+                                                                                                                                      </block>
+                                                                                                                                    </value>
+                                                                                                                                    <next>
+                                                                                                                                      <block type="LEDs_update_by_number" id="mPt1bN#htwV0cGkdnV4[">
+                                                                                                                                        <value name="LED_NUMBER">
+                                                                                                                                          <block type="math_number" id="ze_YD.PXjt$abp9@g^X6">
+                                                                                                                                            <field name="NUM">1</field>
+                                                                                                                                          </block>
+                                                                                                                                        </value>
+                                                                                                                                        <value name="state">
+                                                                                                                                          <block type="logic_boolean" id="qM~[#Fm2#{oCOUt`g-VR">
+                                                                                                                                            <field name="BOOL">TRUE</field>
+                                                                                                                                          </block>
+                                                                                                                                        </value>
+                                                                                                                                        <next>
+                                                                                                                                          <block type="custom_while" id="njYN:X9EK=grlQSS3,M9">
+                                                                                                                                            <value name="CONDITION">
+                                                                                                                                              <block type="logic_boolean" id="y#`Hm}?JE~67k80+r?|+">
+                                                                                                                                                <field name="BOOL">TRUE</field>
+                                                                                                                                              </block>
+                                                                                                                                            </value>
+                                                                                                                                            <statement name="DO">
+                                                                                                                                              <block type="LEDs_update_by_number" id="u_m_M?5u#=!,zC!;Faf?">
+                                                                                                                                                <value name="LED_NUMBER">
+                                                                                                                                                  <block type="math_number" id="uVezfxP/jpW}MKxuqWXi">
+                                                                                                                                                    <field name="NUM">1</field>
+                                                                                                                                                  </block>
+                                                                                                                                                </value>
+                                                                                                                                                <value name="state">
+                                                                                                                                                  <block type="logic_boolean" id="5?R@!^Poz?R=+Bvuuv3Q">
+                                                                                                                                                    <field name="BOOL">FALSE</field>
+                                                                                                                                                  </block>
+                                                                                                                                                </value>
+                                                                                                                                                <next>
+                                                                                                                                                  <block type="time_sleep" id="R/`O$I+H6}~8/tJO[3)*">
+                                                                                                                                                    <value name="SECONDS">
+                                                                                                                                                      <block type="math_number" id="0POb(!2y^$/VUD^o4E(E">
+                                                                                                                                                        <field name="NUM">1</field>
+                                                                                                                                                      </block>
+                                                                                                                                                    </value>
+                                                                                                                                                    <next>
+                                                                                                                                                      <block type="LEDs_update_by_number" id="x}4.5@:@Cv^yTN6#/yKE">
+                                                                                                                                                        <value name="LED_NUMBER">
+                                                                                                                                                          <block type="math_number" id="uEMr|iPuCtHs:rdMiD:)">
+                                                                                                                                                            <field name="NUM">1</field>
+                                                                                                                                                          </block>
+                                                                                                                                                        </value>
+                                                                                                                                                        <value name="state">
+                                                                                                                                                          <block type="logic_boolean" id="9wjUU=Wpf+znv|~YQ$Ir">
+                                                                                                                                                            <field name="BOOL">TRUE</field>
+                                                                                                                                                          </block>
+                                                                                                                                                        </value>
+                                                                                                                                                        <next>
+                                                                                                                                                          <block type="custom_while" id="6B/_Ga*js.rf*u6Wiv!7">
+                                                                                                                                                            <value name="CONDITION">
+                                                                                                                                                              <block type="logic_boolean" id="v^wfChAR]uZi,!K!;ZQP">
+                                                                                                                                                                <field name="BOOL">TRUE</field>
+                                                                                                                                                              </block>
+                                                                                                                                                            </value>
+                                                                                                                                                            <statement name="DO">
+                                                                                                                                                              <block type="LEDs_update_by_number" id="-8x%Qt2)3{%Q)`nXpR%h">
+                                                                                                                                                                <value name="LED_NUMBER">
+                                                                                                                                                                  <block type="math_number" id="exceq[^dnspd6oLvUiWb">
+                                                                                                                                                                    <field name="NUM">1</field>
+                                                                                                                                                                  </block>
+                                                                                                                                                                </value>
+                                                                                                                                                                <value name="state">
+                                                                                                                                                                  <block type="logic_boolean" id="m5KB;XUXylaDnG7)(4F=">
+                                                                                                                                                                    <field name="BOOL">FALSE</field>
+                                                                                                                                                                  </block>
+                                                                                                                                                                </value>
+                                                                                                                                                                <next>
+                                                                                                                                                                  <block type="time_sleep" id="W#sDWwfG82#6O]9W@M2y">
+                                                                                                                                                                    <value name="SECONDS">
+                                                                                                                                                                      <block type="math_number" id="x^}{q+s5c{YCYy}r41gH">
+                                                                                                                                                                        <field name="NUM">1</field>
+                                                                                                                                                                      </block>
+                                                                                                                                                                    </value>
+                                                                                                                                                                    <next>
+                                                                                                                                                                      <block type="LEDs_update_by_number" id="[q3Fk7XsEG4mXx]gWHS4">
+                                                                                                                                                                        <value name="LED_NUMBER">
+                                                                                                                                                                          <block type="math_number" id="yZRnvGsC9!vJHJ.Pzx~v">
+                                                                                                                                                                            <field name="NUM">1</field>
+                                                                                                                                                                          </block>
+                                                                                                                                                                        </value>
+                                                                                                                                                                        <value name="state">
+                                                                                                                                                                          <block type="logic_boolean" id="`sdtgV^Yi*]qN(6o.Yo_">
+                                                                                                                                                                            <field name="BOOL">TRUE</field>
+                                                                                                                                                                          </block>
+                                                                                                                                                                        </value>
+                                                                                                                                                                      </block>
+                                                                                                                                                                    </next>
+                                                                                                                                                                  </block>
+                                                                                                                                                                </next>
+                                                                                                                                                              </block>
+                                                                                                                                                            </statement>
+                                                                                                                                                          </block>
+                                                                                                                                                        </next>
+                                                                                                                                                      </block>
+                                                                                                                                                    </next>
+                                                                                                                                                  </block>
+                                                                                                                                                </next>
+                                                                                                                                              </block>
+                                                                                                                                            </statement>
+                                                                                                                                          </block>
+                                                                                                                                        </next>
+                                                                                                                                      </block>
+                                                                                                                                    </next>
+                                                                                                                                  </block>
+                                                                                                                                </next>
+                                                                                                                              </block>
+                                                                                                                            </statement>
+                                                                                                                          </block>
+                                                                                                                        </next>
+                                                                                                                      </block>
+                                                                                                                    </next>
+                                                                                                                  </block>
+                                                                                                                </next>
+                                                                                                              </block>
+                                                                                                            </statement>
+                                                                                                          </block>
+                                                                                                        </next>
+                                                                                                      </block>
+                                                                                                    </next>
+                                                                                                  </block>
+                                                                                                </next>
+                                                                                              </block>
+                                                                                            </statement>
+                                                                                          </block>
+                                                                                        </next>
+                                                                                      </block>
+                                                                                    </next>
+                                                                                  </block>
+                                                                                </next>
+                                                                              </block>
+                                                                            </statement>
+                                                                          </block>
+                                                                        </next>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </statement>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </statement>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

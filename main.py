@@ -86,7 +86,7 @@ def run_python_code(code):
     if sys.platform == 'win32':
         temp_file = "temp_code.py"
     elif sys.platform == 'linux':
-        temp_file = "temp_code.py"
+        temp_file = "../library/temp_code.py"
     try:
         # Write the code to a fixed temp file
         with open(temp_file, 'w') as f:
@@ -96,7 +96,7 @@ def run_python_code(code):
         if sys.platform == 'win32':
             process = subprocess.Popen(['start', 'cmd', '/k', f'python {temp_file} && del {temp_file}'], shell=True)
         else:
-            subprocess.Popen(['lxterminal', '-e', f'bash -c "python3 {temp_file}; rm {temp_file}; exec bash"'])
+            subprocess.Popen(['lxterminal', '-e', f'bash -c "sudo python3 {temp_file}; rm {temp_file}; exec bash"'])
 
         
         return "", ""

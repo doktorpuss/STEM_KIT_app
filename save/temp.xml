@@ -1,0 +1,15 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="SEG7_update" id="P;DH_Df2om:boPw+d,2n" x="230" y="270">
+    <value name="LED">
+      <block type="math_number" id="D~-8Mdq3du~[`AQ9cJ?S">
+        <field name="NUM">1</field>
+      </block>
+    </value>
+    <value name="VALUE">
+      <block type="math_number" id="N_Yl,/4|/?K@2m2qFhW!">
+        <field name="NUM">2</field>
+      </block>
+    </value>
+  </block>
+  <block type="SEG7_dot" id="v[$%~a:[d39,$RId5e^[" x="190" y="350"></block>
+</xml>
