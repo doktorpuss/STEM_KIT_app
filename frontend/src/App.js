@@ -15,6 +15,9 @@ import './blocks/ADC_blocks';
 import './blocks/LCD_blocks';
 import './blocks/SEG7_blocks';
 import './blocks/RGB_blocks';
+import './blocks/FAN_blocks';
+import './blocks/SERVO_blocks';
+import './blocks/BUZZER_blocks';
 import './blocks/BUTTON_blocks';
 // import './blocks/struct_blocks';
 // import './blocks/class_blocks';
@@ -193,6 +196,17 @@ const INITIAL_TOOLBOX_JSON = {
     },
     {
       "kind": "category",
+      "name": "Actuators",
+      "categorystyle": "actuator_category",
+      "contents": [
+        { "kind": "block", "type": "FAN" },
+        { "kind": "block", "type": "BUZZER" },
+        { "kind": "block", "type": "SERVO" },
+        { "kind": "block", "type": "SERVO_angle" }
+      ]
+    },
+    {
+      "kind": "category",
       "name": "ADC",
       "categorystyle": "ADC_category",
       "contents": [
@@ -218,8 +232,8 @@ const blocklyTheme = Blockly.Theme.defineTheme('custom', {
     'cursorColour': '#d0d0d0'
   },
   'categoryStyles': {
-    'logic_category': { 'colour': '210' },
-    'loop_category': { 'colour': '120' },
+    'logic_category': { 'colour': '120' },
+    'loop_category': { 'colour': '150' },
     'math_category': { 'colour': '230' },
     'text_category': { 'colour': '160' },
     'list_category': { 'colour': '260' },
@@ -232,7 +246,8 @@ const blocklyTheme = Blockly.Theme.defineTheme('custom', {
     'struct_category': { 'colour': '330' },
     'array_category': { 'colour': '340' },
     'dictionary_category': { 'colour': '350' },
-    'class_category': { 'colour': '360' }
+    'class_category': { 'colour': '360' },
+    'actuator_category': { 'colour': '370' }
   }
 });
 
