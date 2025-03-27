@@ -1,3 +1,10 @@
+import Blockly from 'blockly/core';
+import 'blockly/blocks';
+import { pythonGenerator } from 'blockly/python';
+
+// Add import BUTTON to definitions
+pythonGenerator.definitions_['import_BUTTON'] = 'import BUTTON';
+
 Blockly.Blocks['BUTTON_read'] = {
   init: function() {
     this.appendDummyInput()

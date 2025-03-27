@@ -1,3 +1,10 @@
+import Blockly from 'blockly/core';
+import 'blockly/blocks';
+import { pythonGenerator } from 'blockly/python';
+
+// Add import SONAR to definitions
+pythonGenerator.definitions_['import_SONAR'] = 'import SONAR';
+
 Blockly.Blocks['SONAR_distance'] = {
   init: function() {
     this.appendDummyInput()

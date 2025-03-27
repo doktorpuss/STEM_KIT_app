@@ -1,5 +1,62 @@
 <xml xmlns="https://developers.google.com/blockly/xml">
-  <block type="text_join" id="|(zt4)2TblJX,DL5vmV`" x="-170" y="-229">
-    <mutation items="2"></mutation>
+  <variables>
+    <variable id="Q]1boj`TIaP)jIoe%C@%">list</variable>
+    <variable id="6n/9go+xEEivx;ov$]F=">i</variable>
+  </variables>
+  <block type="variables_set" id="]JVR_?61AxR@q.o5$/$B" x="170" y="290">
+    <field name="VAR" id="Q]1boj`TIaP)jIoe%C@%">list</field>
+    <value name="VALUE">
+      <block type="lists_create_with" id="Y{6RpVdm|]JRC~Idu#bQ">
+        <mutation items="4"></mutation>
+        <value name="ADD0">
+          <block type="math_number" id="+Ar?tUil9kKbapM?[C:U">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+        <value name="ADD1">
+          <block type="math_number" id="hkDsfyz@:mb/1f3w%EVI">
+            <field name="NUM">2</field>
+          </block>
+        </value>
+        <value name="ADD2">
+          <block type="text" id="sRdlwAZHl7oe-8LJGJ@t">
+            <field name="TEXT">txt</field>
+          </block>
+        </value>
+        <value name="ADD3">
+          <block type="math_number" id="/!O#+oz=V(Rfh];-tJne">
+            <field name="NUM">3</field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <next>
+      <block type="controls_forEach" id="r9BL:Yvn,B[e,5f5.X1I">
+        <field name="VAR" id="6n/9go+xEEivx;ov$]F=">i</field>
+        <value name="LIST">
+          <block type="variables_get" id="gn!dulV:]JsF,,V-MB1r">
+            <field name="VAR" id="Q]1boj`TIaP)jIoe%C@%">list</field>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="text_print" id="QCnmlc|`DtY6l%=;Jg04">
+            <value name="TEXT">
+              <block type="variables_get" id="HvIcc-:K6;sl?(P9ms)#">
+                <field name="VAR" id="6n/9go+xEEivx;ov$]F=">i</field>
+              </block>
+            </value>
+            <next>
+              <block type="time_sleep" id="G_3pd5#A8sN[D9gCQ)IY">
+                <value name="SECONDS">
+                  <block type="math_number" id="awf7=qtW:;HM2Cqe,kI,">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
   </block>
 </xml>

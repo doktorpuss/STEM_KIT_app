@@ -1,3 +1,7 @@
+import Blockly from 'blockly/core';
+import 'blockly/blocks';
+import { pythonGenerator } from 'blockly/python';
+
 Blockly.Blocks['RGB_start'] = {
   init: function() {
     this.appendDummyInput()
@@ -30,7 +34,10 @@ Blockly.Blocks['RGB_color'] = {
         .appendField("G");
     this.appendValueInput('BLUE')
         .setCheck('Number')
-        .appendField("B)");
+        .appendField("B");
+    this.appendDummyInput()
+        .appendField(")");
+    this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(Blockly.Msg['LOGIC_HUE']);
@@ -39,14 +46,21 @@ Blockly.Blocks['RGB_color'] = {
 };
 
 pythonGenerator.forBlock['RGB_start'] = function(block) {
+
+  // Add import RGB to definitions
+  pythonGenerator.definitions_['import_RGB'] = 'import RGB';
   return `RGB.start()\n`;
 };
 
 pythonGenerator.forBlock['RGB_stop'] = function(block) {
+  // Add import RGB to definitions
+  pythonGenerator.definitions_['import_RGB'] = 'import RGB';
   return `RGB.stop()\n`;
 };
 
 pythonGenerator.forBlock['RGB_color'] = function(block) {
+  // Add import RGB to definitions
+  pythonGenerator.definitions_['import_RGB'] = 'import RGB';
   var red = pythonGenerator.valueToCode(block, 'RED', pythonGenerator.ORDER_ATOMIC) || '0';
   var green = pythonGenerator.valueToCode(block, 'GREEN', pythonGenerator.ORDER_ATOMIC) || '0';
   var blue = pythonGenerator.valueToCode(block, 'BLUE', pythonGenerator.ORDER_ATOMIC) || '0';

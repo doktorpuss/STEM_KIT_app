@@ -1,3 +1,10 @@
+import Blockly from 'blockly/core';
+import 'blockly/blocks';
+import { pythonGenerator } from 'blockly/python';
+
+// Add import FAN to definitions
+pythonGenerator.definitions_['import_FAN'] = 'import FAN';
+
 Blockly.Blocks['FAN_on'] = {
   init: function() {
     this.appendDummyInput()

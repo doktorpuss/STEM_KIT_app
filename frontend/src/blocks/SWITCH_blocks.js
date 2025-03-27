@@ -1,3 +1,10 @@
+import Blockly from 'blockly/core';
+import 'blockly/blocks';
+import { pythonGenerator } from 'blockly/python';
+
+// Add import SWITCH to definitions
+pythonGenerator.definitions_['import_SWITCH'] = 'import SWITCH';
+
 Blockly.Blocks['SWITCH_read'] = {
   init: function() {
     this.appendDummyInput()

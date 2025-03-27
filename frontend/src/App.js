@@ -12,33 +12,27 @@ import './blocks/time_blocks';
 import './blocks/custom_block';
 import './blocks/LED_blocks';
 import './blocks/ADC_blocks';
+import './blocks/LCD_blocks';
+import './blocks/SEG7_blocks';
+import './blocks/RGB_blocks';
+import './blocks/BUTTON_blocks';
+// import './blocks/struct_blocks';
+// import './blocks/class_blocks';
+// import './blocks/arrays_blocks';
+// import './blocks/dictionaries_blocks';
+import './blocks/custom_while';
 // Định nghĩa màu sắc cho các khối
 Blockly.utils.colour.setHsvSaturation(0.45);
 Blockly.utils.colour.setHsvValue(0.65);
 
 const INITIAL_TOOLBOX_JSON = {
   "kind": "categoryToolbox",
-  "contents": [
+  "contents": [ 
     {
       "kind": "category",
-      "name": "Logic",
-      "categorystyle": "logic_category",
-      "contents": [
-        { "kind": "block", "type": "controls_if" },
-        { "kind": "block", "type": "logic_compare" },
-        { "kind": "block", "type": "logic_operation" },
-        { "kind": "block", "type": "logic_negate" }
-      ]
-    },
-    {
-      "kind": "category",
-      "name": "Loops",
-      "categorystyle": "loop_category",
-      "contents": [
-        { "kind": "block", "type": "controls_repeat_ext" },
-        { "kind": "block", "type": "controls_whileUntil" },
-        { "kind": "block", "type": "controls_for" }
-      ]
+      "name": "Variables",
+      "categorystyle": "variable_category",
+      "custom": "VARIABLE"
     },
     {
       "kind": "category",
@@ -47,7 +41,24 @@ const INITIAL_TOOLBOX_JSON = {
       "contents": [
         { "kind": "block", "type": "math_number" },
         { "kind": "block", "type": "math_arithmetic" },
-        { "kind": "block", "type": "math_single" }
+        { "kind": "block", "type": "math_single" },
+        { "kind": "block", "type": "math_number_property" },
+        { "kind": "block", "type": "math_constant" },
+        { "kind": "block", "type": "math_round" },
+        { "kind": "block", "type": "math_modulo" },
+      ]
+    }, 
+    {
+      "kind": "category",
+      "name": "Logic",
+      "categorystyle": "logic_category",
+      "contents": [
+        { "kind": "block", "type": "controls_if" },
+        { "kind": "block", "type": "logic_compare" },
+        { "kind": "block", "type": "logic_operation" },
+        { "kind": "block", "type": "logic_negate" },
+        { "kind": "block", "type": "logic_boolean" },
+        { "kind": "block", "type": "logic_null" }
       ]
     },
     {
@@ -60,6 +71,69 @@ const INITIAL_TOOLBOX_JSON = {
         { "kind": "block", "type": "text_join" }
       ]
     },
+    {
+      "kind": "category",
+      "name": "Loops",
+      "categorystyle": "loop_category",
+      "contents": [
+        { "kind": "block", "type": "controls_repeat_ext" },
+        { "kind": "block", "type": "custom_while" },
+        { "kind": "block", "type": "controls_for" },
+        { "kind": "block", "type": "controls_forEach" },
+      ]
+    },
+    {
+      "kind": "category", 
+      "name": "Functions",
+      "categorystyle": "procedure_category",
+      "custom": "PROCEDURE",
+      "contents": [
+        { "kind": "block", "type": "controls_call" },
+        { "kind": "block", "type": "controls_custom_function" },
+        { "kind": "block", "type": "controls_function_declaration" }        
+      ]
+    },
+    // {
+    //   "kind": "category",
+    //   "name": "Arrays",
+    //   "categorystyle": "array_category",
+    //   "contents": [
+    //     { "kind": "block", "type": "arrays_create"  },
+    //     { "kind": "block", "type": "arrays_get" },
+    //     { "kind": "block", "type": "arrays_set" },
+    //     { "kind": "block", "type": "arrays_length" }
+    //   ]
+    // },
+    // {
+    //   "kind": "category",
+    //   "name": "Struct",
+    //   "categorystyle": "struct_category",
+    //   "contents": [
+    //     { "kind": "block", "type": "struct_create" },
+    //     { "kind": "block", "type": "struct_get" },
+    //     { "kind": "block", "type": "struct_set" }
+    //   ]
+    // },
+    // {
+    //   "kind": "category",
+    //   "name": "Dictionaries",
+    //   "categorystyle": "dictionary_category",
+    //   "contents": [
+    //     { "kind": "block", "type": "dictionaries_create" },
+    //     { "kind": "block", "type": "dictionaries_get" },
+    //     { "kind": "block", "type": "dictionaries_set" }
+    //   ]
+    // },
+    // {
+    //   "kind": "category",
+    //   "name": "Classes",
+    //   "categorystyle": "class_category",
+    //   "contents": [
+    //     { "kind": "block", "type": "class_create" },
+    //     { "kind": "block", "type": "class_get" },
+    //     { "kind": "block", "type": "class_set" }
+    //   ]
+    // },
     {
       "kind": "category",
       "name": "Lists",
@@ -79,20 +153,10 @@ const INITIAL_TOOLBOX_JSON = {
       "categorystyle": "time_category",
       "contents": [
         { "kind": "block", "type": "time_sleep" },
-        { "kind": "block", "type": "time_time" }
+        { "kind": "block", "type": "time_time" },
+        { "kind": "block", "type": "time_perf_counter" },
+        { "kind": "block", "type": "time_process_time" }
       ]
-    },
-    {
-      "kind": "category",
-      "name": "Variables",
-      "categorystyle": "variable_category",
-      "custom": "VARIABLE"
-    },
-    {
-      "kind": "category", 
-      "name": "Functions",
-      "categorystyle": "procedure_category",
-      "custom": "PROCEDURE"
     },
     {
       "kind": "category",
@@ -105,12 +169,26 @@ const INITIAL_TOOLBOX_JSON = {
     },
     {
       "kind": "category",
-      "name": "LEDs",
+      "name": "Light & Display",
       "categorystyle": "LEDs_category",
       "contents": [
-        { "kind": "block", "type": "LEDs_update" },
         { "kind": "block", "type": "LEDs_clear" },
-        { "kind": "block", "type": "LEDs_update_by_number" }
+        { "kind": "block", "type": "LEDs_update_by_number" },
+
+        { "kind": "block", "type": "SEG7_ss" },
+        { "kind": "block", "type": "SEG7_clear" },
+        { "kind": "block", "type": "SEG7_update" },
+        { "kind": "block", "type": "SEG7_dot" },
+
+        { "kind": "block", "type": "RGB_start" },
+        { "kind": "block", "type": "RGB_stop" },
+        { "kind": "block", "type": "RGB_color" },
+
+        { "kind": "block", "type": "LCD_begin" },
+        { "kind": "block", "type": "LCD_backlight" },
+        { "kind": "block", "type": "LCD_print" },
+        { "kind": "block", "type": "LCD_setCursor" },
+        { "kind": "block", "type": "LCD_clear" }
       ]
     },
     {
@@ -151,6 +229,10 @@ const blocklyTheme = Blockly.Theme.defineTheme('custom', {
     'custom_category': { 'colour': '300' },
     'LEDs_category': { 'colour': '310' },
     'ADC_category': { 'colour': '320' },
+    'struct_category': { 'colour': '330' },
+    'array_category': { 'colour': '340' },
+    'dictionary_category': { 'colour': '350' },
+    'class_category': { 'colour': '360' }
   }
 });
 

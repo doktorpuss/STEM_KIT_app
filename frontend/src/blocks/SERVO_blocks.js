@@ -1,3 +1,10 @@
+import Blockly from 'blockly/core';
+import 'blockly/blocks';
+import { pythonGenerator } from 'blockly/python';
+
+// Add import SERVO to definitions
+pythonGenerator.definitions_['import_SERVO'] = 'import SERVO';
+
 Blockly.Blocks['SERVO_start'] = {
   init: function() {
     this.appendDummyInput()

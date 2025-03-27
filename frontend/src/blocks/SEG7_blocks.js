@@ -1,22 +1,20 @@
-Blockly.Blocks['SEG7_start'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("Start 7-Segment Display");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-    this.setColour(Blockly.Msg['LOGIC_HUE']);
-    this.setTooltip("Start 7-segment display multiplexing");
-  }
-};
+import Blockly from 'blockly/core';
+import 'blockly/blocks';
+import { pythonGenerator } from 'blockly/python';
 
-Blockly.Blocks['SEG7_stop'] = {
+Blockly.Blocks['SEG7_ss'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("Stop 7-Segment Display");
+        .appendField('7 Segment Display')
+    const input = this.appendDummyInput()
+    input.appendField(new Blockly.FieldDropdown([
+      ['START','START'],
+      ['STOP','STOP']
+    ]),'STATE');
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(Blockly.Msg['LOGIC_HUE']);
-    this.setTooltip("Stop 7-segment display multiplexing");
+    this.setTooltip("Start/Stop 7-segment display");
   }
 };
 
@@ -33,64 +31,69 @@ Blockly.Blocks['SEG7_clear'] = {
 
 Blockly.Blocks['SEG7_update'] = {
   init: function() {
-    this.appendValueInput('VALUE')
+    this.appendValueInput('LED')
         .setCheck('Number')
-        .appendField("Update 7-Segment Display (Value");
+        .appendField("Digit");
+    this.appendValueInput('LED')
+        .setCheck('Number')
+        .appendField("play number");
     this.appendDummyInput()
-        .appendField(new Blockly.FieldDropdown([
-          ["Digit 1", "1"],
-          ["Digit 2", "2"],
-          ["Digit 3", "3"],
-          ["Digit 4", "4"]
-        ]), "LED")
-        .appendField("Digit)");
+        .appendField(")");
+    this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(Blockly.Msg['LOGIC_HUE']);
-    this.setTooltip("Update digit value (0-9)");
+    this.setTooltip("Play number (0-9) on digit (1-4)");
   }
 };
 
 Blockly.Blocks['SEG7_dot'] = {
   init: function() {
-    this.appendDummyInput()
-        .appendField("Set 7-Segment Display Dot")
-        .appendField(new Blockly.FieldDropdown([
-          ["Digit 1", "1"],
-          ["Digit 2", "2"],
-          ["Digit 3", "3"],
-          ["Digit 4", "4"]
-        ]), "LED")
-        .appendField(new Blockly.FieldDropdown([
-          ["ON", "1"],
-          ["OFF", "0"]
-        ]), "MODE");
+    this.appendValueInput('LED')
+        .setCheck('Number')
+        .appendField("Dot on digit")
+    this.appendValueInput('MODE')
+        .setCheck('Number')
+        .appendField("state:");
+    this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(Blockly.Msg['LOGIC_HUE']);
-    this.setTooltip("Set decimal point state");
+    this.setTooltip("Set dot state");
   }
 };
 
-pythonGenerator.forBlock['SEG7_start'] = function(block) {
-  return `SEG7.start()\n`;
+pythonGenerator.forBlock['SEG7_ss'] = function(block) {
+  // Add import SEG7 to definitions
+  pythonGenerator.definitions_['import_SEG7'] = 'import SEG7';
+
+  var value = block.getFieldValue('STATE');
+  if (value === 'START') {
+    return `SEG7.start()\n`;
+  } else if (value === 'STOP') {
+    return `SEG7.stop()\n`;
+  }
 };
 
-pythonGenerator.forBlock['SEG7_stop'] = function(block) {
-  return `SEG7.stop()\n`;
-};
+
 
 pythonGenerator.forBlock['SEG7_clear'] = function(block) {
+  // Add import SEG7 to definitions
+  pythonGenerator.definitions_['import_SEG7'] = 'import SEG7';
   return `SEG7.clear()\n`;
 };
 
 pythonGenerator.forBlock['SEG7_update'] = function(block) {
+  // Add import SEG7 to definitions
+  pythonGenerator.definitions_['import_SEG7'] = 'import SEG7';
   var value = pythonGenerator.valueToCode(block, 'VALUE', pythonGenerator.ORDER_ATOMIC) || '0';
   var led = block.getFieldValue('LED');
   return `SEG7.update(${value}, ${led})\n`;
 };
 
 pythonGenerator.forBlock['SEG7_dot'] = function(block) {
+  // Add import SEG7 to definitions
+  pythonGenerator.definitions_['import_SEG7'] = 'import SEG7';
   var led = block.getFieldValue('LED');
   var mode = block.getFieldValue('MODE');
   return `SEG7.dot_update(${led}, ${mode})\n`;

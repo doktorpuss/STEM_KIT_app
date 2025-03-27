@@ -1,3 +1,10 @@
+import Blockly from 'blockly/core';
+import 'blockly/blocks';
+import { pythonGenerator } from 'blockly/python';
+
+// Add import BUZZER to definitions
+pythonGenerator.definitions_['import_BUZZER'] = 'import BUZZER';
+
 Blockly.Blocks['BUZZER_on'] = {
   init: function() {
     this.appendDummyInput()

@@ -1,3 +1,10 @@
+import Blockly from 'blockly/core';
+import 'blockly/blocks';
+import { pythonGenerator } from 'blockly/python';
+
+// Add import DHT to definitions
+pythonGenerator.definitions_['import_DHT'] = 'import DHT';
+
 Blockly.Blocks['DHT_temperature'] = {
   init: function() {
     this.appendDummyInput()

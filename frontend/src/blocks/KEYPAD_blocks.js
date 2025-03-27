@@ -1,3 +1,10 @@
+import Blockly from 'blockly/core';
+import 'blockly/blocks';
+import { pythonGenerator } from 'blockly/python';
+
+// Add import KEYPAD to definitions
+pythonGenerator.definitions_['import_KEYPAD'] = 'import KEYPAD';
+
 Blockly.Blocks['KEYPAD_start'] = {
   init: function() {
     this.appendDummyInput()
