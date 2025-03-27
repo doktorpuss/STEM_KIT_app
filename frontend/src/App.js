@@ -176,15 +176,6 @@ const INITIAL_TOOLBOX_JSON = {
     },
     {
       "kind": "category",
-      "name": "custom",
-      "categorystyle": "custom_category",
-      "contents": [
-        { "kind": "block", "type": "cuss1" },
-        { "kind": "block", "type": "cuss2" }
-      ]
-    },
-    {
-      "kind": "category",
       "name": "Light & Display",
       "categorystyle": "LEDs_category",
       "contents": [
@@ -242,14 +233,6 @@ const INITIAL_TOOLBOX_JSON = {
         { "kind": "block", "type": "KEYPAD_available" },
         { "kind": "block", "type": "KEYPAD_read" }
       ]
-    },
-    {
-      "kind": "category",
-      "name": "ADC",
-      "categorystyle": "ADC_category",
-      "contents": [
-        { "kind": "block", "type": "Potentiometer_read" }
-      ]
     }
   ]
 };
@@ -279,12 +262,10 @@ const blocklyTheme = Blockly.Theme.defineTheme('custom', {
     'time_category': { 'colour': '160' },
     'variable_category': { 'colour': '170' },
     'procedure_category': { 'colour': '180' },
-    'custom_category': { 'colour': '190' },
-    'LEDs_category': { 'colour': '200' },
-    'ADC_category': { 'colour': '210' },
-    'actuator_category': { 'colour': '220' },
-    'sensor_category': { 'colour': '230' },
-    'active_input_category': { 'colour': '240' }
+    'LEDs_category': { 'colour': '190' },
+    'actuator_category': { 'colour': '200' },
+    'sensor_category': { 'colour': '210' },
+    'active_input_category': { 'colour': '220' }
   }
 });
 
