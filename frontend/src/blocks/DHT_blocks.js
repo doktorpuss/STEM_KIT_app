@@ -2,8 +2,6 @@ import Blockly from 'blockly/core';
 import 'blockly/blocks';
 import { pythonGenerator } from 'blockly/python';
 
-// Add import DHT to definitions
-pythonGenerator.definitions_['import_DHT'] = 'import DHT';
 
 Blockly.Blocks['DHT_temperature'] = {
   init: function() {
@@ -26,9 +24,13 @@ Blockly.Blocks['DHT_humidity'] = {
 };
 
 pythonGenerator.forBlock['DHT_temperature'] = function(block) {
+  // Add import DHT to definitions
+  pythonGenerator.definitions_['import_DHT'] = 'import DHT';
   return [`DHT.temperature()`, pythonGenerator.ORDER_FUNCTION_CALL];
 };
 
 pythonGenerator.forBlock['DHT_humidity'] = function(block) {
+  // Add import DHT to definitions
+  pythonGenerator.definitions_['import_DHT'] = 'import DHT';
   return [`DHT.humidity()`, pythonGenerator.ORDER_FUNCTION_CALL];
 }; 

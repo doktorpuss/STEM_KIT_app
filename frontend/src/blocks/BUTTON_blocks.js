@@ -2,8 +2,6 @@ import Blockly from 'blockly/core';
 import 'blockly/blocks';
 import { pythonGenerator } from 'blockly/python';
 
-// Add import BUTTON to definitions
-pythonGenerator.definitions_['import_BUTTON'] = 'import BUTTON';
 
 Blockly.Blocks['BUTTON_read'] = {
   init: function() {
@@ -11,9 +9,7 @@ Blockly.Blocks['BUTTON_read'] = {
         .appendField("Read Button")
         .appendField(new Blockly.FieldDropdown([
           ["Button 1", "1"],
-          ["Button 2", "2"],
-          ["Button 3", "3"],
-          ["Button 4", "4"]
+          ["Button 2", "2"]
         ]), "BUTTON");
     this.setOutput(true, "Boolean");
     this.setColour(Blockly.Msg['LOGIC_HUE']);
@@ -22,6 +18,8 @@ Blockly.Blocks['BUTTON_read'] = {
 };
 
 pythonGenerator.forBlock['BUTTON_read'] = function(block) {
+  // Add import BUTTON to definitions
+  pythonGenerator.definitions_['import_BUTTON'] = 'import BUTTON';
   var button = block.getFieldValue('BUTTON');
   return [`BUTTON.read_button(${button})`, pythonGenerator.ORDER_FUNCTION_CALL];
 }; 

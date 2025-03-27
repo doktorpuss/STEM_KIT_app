@@ -2,8 +2,6 @@ import Blockly from 'blockly/core';
 import 'blockly/blocks';
 import { pythonGenerator } from 'blockly/python';
 
-// Add import KEYPAD to definitions
-pythonGenerator.definitions_['import_KEYPAD'] = 'import KEYPAD';
 
 Blockly.Blocks['KEYPAD_start'] = {
   init: function() {
@@ -51,18 +49,26 @@ Blockly.Blocks['KEYPAD_read'] = {
 };
 
 pythonGenerator.forBlock['KEYPAD_start'] = function(block) {
+  // Add import KEYPAD to definitions
+  pythonGenerator.definitions_['import_KEYPAD'] = 'import KEYPAD';
   var end_char = pythonGenerator.valueToCode(block, 'END_CHAR', pythonGenerator.ORDER_ATOMIC) || "''";
   return `KEYPAD.start(${end_char})\n`;
 };
 
 pythonGenerator.forBlock['KEYPAD_stop'] = function(block) {
+  // Add import KEYPAD to definitions
+  pythonGenerator.definitions_['import_KEYPAD'] = 'import KEYPAD';
   return `KEYPAD.stop()\n`;
 };
 
 pythonGenerator.forBlock['KEYPAD_available'] = function(block) {
+  // Add import KEYPAD to definitions
+  pythonGenerator.definitions_['import_KEYPAD'] = 'import KEYPAD';
   return [`KEYPAD.available()`, pythonGenerator.ORDER_FUNCTION_CALL];
 };
 
 pythonGenerator.forBlock['KEYPAD_read'] = function(block) {
+  // Add import KEYPAD to definitions
+  pythonGenerator.definitions_['import_KEYPAD'] = 'import KEYPAD';
   return [`KEYPAD.readBuffer()`, pythonGenerator.ORDER_FUNCTION_CALL];
 }; 

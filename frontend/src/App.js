@@ -19,11 +19,16 @@ import './blocks/FAN_blocks';
 import './blocks/SERVO_blocks';
 import './blocks/BUZZER_blocks';
 import './blocks/BUTTON_blocks';
+import './blocks/SONAR_blocks';
+import './blocks/DHT_blocks';
+import './blocks/KEYPAD_blocks';
+import './blocks/SWITCH_blocks';
 // import './blocks/struct_blocks';
 // import './blocks/class_blocks';
 // import './blocks/arrays_blocks';
 // import './blocks/dictionaries_blocks';
 import './blocks/custom_while';
+import './blocks/program_structure_blocks';
 // Định nghĩa màu sắc cho các khối
 Blockly.utils.colour.setHsvSaturation(0.45);
 Blockly.utils.colour.setHsvValue(0.65);
@@ -31,6 +36,14 @@ Blockly.utils.colour.setHsvValue(0.65);
 const INITIAL_TOOLBOX_JSON = {
   "kind": "categoryToolbox",
   "contents": [ 
+    {
+      "kind": "category",
+      "name": "Program Structure",
+      "categorystyle": "program_structure_category",
+      "contents": [
+        { "kind": "block", "type": "program_try_except" }
+      ]
+    },
     {
       "kind": "category",
       "name": "Variables",
@@ -207,6 +220,31 @@ const INITIAL_TOOLBOX_JSON = {
     },
     {
       "kind": "category",
+      "name": "Sensors",
+      "categorystyle": "sensor_category",
+      "contents": [
+        { "kind": "block", "type": "SONAR_distance" },
+        { "kind": "block", "type": "Smoke_read" },
+        { "kind": "block", "type": "DHT_temperature" },
+        { "kind": "block", "type": "DHT_humidity" }
+      ]
+    },
+    {
+      "kind": "category",
+      "name": "Active input",
+      "categorystyle": "active_input_category",
+      "contents": [
+        { "kind": "block", "type": "BUTTON_read" },
+        { "kind": "block", "type": "SWITCH_read" },
+        { "kind": "block", "type": "Potentiometer_read" },
+        { "kind": "block", "type": "KEYPAD_start" },
+        { "kind": "block", "type": "KEYPAD_stop" },
+        { "kind": "block", "type": "KEYPAD_available" },
+        { "kind": "block", "type": "KEYPAD_read" }
+      ]
+    },
+    {
+      "kind": "category",
       "name": "ADC",
       "categorystyle": "ADC_category",
       "contents": [
@@ -232,22 +270,21 @@ const blocklyTheme = Blockly.Theme.defineTheme('custom', {
     'cursorColour': '#d0d0d0'
   },
   'categoryStyles': {
-    'logic_category': { 'colour': '120' },
-    'loop_category': { 'colour': '150' },
-    'math_category': { 'colour': '230' },
-    'text_category': { 'colour': '160' },
-    'list_category': { 'colour': '260' },
-    'time_category': { 'colour': '290' },
-    'variable_category': { 'colour': '330' },
-    'procedure_category': { 'colour': '290' },
-    'custom_category': { 'colour': '300' },
-    'LEDs_category': { 'colour': '310' },
-    'ADC_category': { 'colour': '320' },
-    'struct_category': { 'colour': '330' },
-    'array_category': { 'colour': '340' },
-    'dictionary_category': { 'colour': '350' },
-    'class_category': { 'colour': '360' },
-    'actuator_category': { 'colour': '370' }
+    'program_structure_category': { 'colour': "#c70303" },
+    'logic_category': { 'colour': '110' },
+    'loop_category': { 'colour': '120' },
+    'math_category': { 'colour': '130' },
+    'text_category': { 'colour': '140' },
+    'list_category': { 'colour': '150' },
+    'time_category': { 'colour': '160' },
+    'variable_category': { 'colour': '170' },
+    'procedure_category': { 'colour': '180' },
+    'custom_category': { 'colour': '190' },
+    'LEDs_category': { 'colour': '200' },
+    'ADC_category': { 'colour': '210' },
+    'actuator_category': { 'colour': '220' },
+    'sensor_category': { 'colour': '230' },
+    'active_input_category': { 'colour': '240' }
   }
 });
 

@@ -2,8 +2,6 @@ import Blockly from 'blockly/core';
 import 'blockly/blocks';
 import { pythonGenerator } from 'blockly/python';
 
-// Add import SWITCH to definitions
-pythonGenerator.definitions_['import_SWITCH'] = 'import SWITCH';
 
 Blockly.Blocks['SWITCH_read'] = {
   init: function() {
@@ -20,6 +18,8 @@ Blockly.Blocks['SWITCH_read'] = {
 };
 
 pythonGenerator.forBlock['SWITCH_read'] = function(block) {
+  // Add import SWITCH to definitions
+  pythonGenerator.definitions_['import_SWITCH'] = 'import SWITCH';
   var switch_num = block.getFieldValue('SWITCH');
   return [`SWITCH.read_switch(${switch_num})`, pythonGenerator.ORDER_FUNCTION_CALL];
 }; 
