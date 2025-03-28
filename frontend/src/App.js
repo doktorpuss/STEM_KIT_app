@@ -254,18 +254,18 @@ const blocklyTheme = Blockly.Theme.defineTheme('custom', {
   },
   'categoryStyles': {
     'program_structure_category': { 'colour': "#c70303" },
-    'logic_category': { 'colour': '110' },
-    'loop_category': { 'colour': '120' },
-    'math_category': { 'colour': '130' },
-    'text_category': { 'colour': '140' },
-    'list_category': { 'colour': '150' },
+    'variable_category': { 'colour': '20' },
+    'math_category': { 'colour': '40' },
+    'logic_category': { 'colour': '60' },
+    'text_category': { 'colour': '80' },
+    'loop_category': { 'colour': '100' },
+    'procedure_category': { 'colour': '120' },
+    'list_category': { 'colour': '140' },
     'time_category': { 'colour': '160' },
-    'variable_category': { 'colour': '170' },
-    'procedure_category': { 'colour': '180' },
-    'LEDs_category': { 'colour': '190' },
+    'LEDs_category': { 'colour': '180' },
     'actuator_category': { 'colour': '200' },
-    'sensor_category': { 'colour': '210' },
-    'active_input_category': { 'colour': '220' }
+    'sensor_category': { 'colour': '220' },
+    'active_input_category': { 'colour': '240' }
   }
 });
 
