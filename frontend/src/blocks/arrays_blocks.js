@@ -107,12 +107,12 @@ pythonGenerator.forBlock['array_append'] = function(block) {
 Blockly.Blocks['array_insert'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("insert into")
+        .appendField("insert")
         .appendField(new Blockly.FieldVariable(
             Blockly.Msg.VARIABLES_DEFAULT_NAME), "VAR")
-        .appendField("at index");
-    this.appendValueInput("INDEX")
-        .setCheck("Number");
+        .appendField("[")
+        .appendField(new Blockly.FieldTextInput("0"), "INDEX")
+        .appendField("] =");
     this.appendValueInput("VALUE")
         .appendField("value")
         .setCheck("Number");
@@ -126,7 +126,7 @@ Blockly.Blocks['array_insert'] = {
 
 pythonGenerator.forBlock['array_insert'] = function(block) {
   const arrayName = pythonGenerator.getVariableName(block.getFieldValue("VAR"));
-  const index = pythonGenerator.valueToCode(block, 'INDEX', pythonGenerator.ORDER_ATOMIC) || '0';
+  const index = block.getFieldValue("INDEX");
   const value = pythonGenerator.valueToCode(block, 'VALUE', pythonGenerator.ORDER_ATOMIC) || '0';
   return `${arrayName}.insert(${index}, ${value})\n`;
 };
