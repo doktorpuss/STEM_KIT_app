@@ -25,7 +25,7 @@ import './blocks/KEYPAD_blocks';
 import './blocks/SWITCH_blocks';
 // import './blocks/struct_blocks';
 // import './blocks/class_blocks';
-// import './blocks/arrays_blocks';
+import './blocks/arrays_blocks';
 // import './blocks/dictionaries_blocks';
 import './blocks/custom_while';
 import './blocks/program_structure_blocks';
@@ -109,17 +109,19 @@ const INITIAL_TOOLBOX_JSON = {
         { "kind": "block", "type": "controls_function_declaration" }        
       ]
     },
-    // {
-    //   "kind": "category",
-    //   "name": "Arrays",
-    //   "categorystyle": "array_category",
-    //   "contents": [
-    //     { "kind": "block", "type": "arrays_create"  },
-    //     { "kind": "block", "type": "arrays_get" },
-    //     { "kind": "block", "type": "arrays_set" },
-    //     { "kind": "block", "type": "arrays_length" }
-    //   ]
-    // },
+    {
+      "kind": "category",
+      "name": "Arrays",
+      "categorystyle": "array_category",
+      "contents": [
+        { "kind": "block", "type": "array" },
+        { "kind": "block", "type": "get_value_by_index" },
+        { "kind": "block", "type": "set_value_by_index" },
+        { "kind": "block", "type": "get_length" },
+        { "kind": "block", "type": "array_append" },
+        { "kind": "block", "type": "array_insert" }
+      ]
+    },
     // {
     //   "kind": "category",
     //   "name": "Struct",
@@ -265,7 +267,8 @@ const blocklyTheme = Blockly.Theme.defineTheme('custom', {
     'LEDs_category': { 'colour': '180' },
     'actuator_category': { 'colour': '200' },
     'sensor_category': { 'colour': '220' },
-    'active_input_category': { 'colour': '240' }
+    'active_input_category': { 'colour': '240' },
+    'array_category': { 'colour': '260' }
   }
 });
 
