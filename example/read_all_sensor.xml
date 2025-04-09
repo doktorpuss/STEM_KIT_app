@@ -1,0 +1,107 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="})=S*h@,9Llu?|Hy=Bz{">Smoke</variable>
+    <variable id="afpPn^mZz={(2p`Jth:M">Temp</variable>
+    <variable id="?ERpt4h?_5@:5(4U~%sz">Dist</variable>
+    <variable id="7*DpIC_p`6z[4AbG,PPI">Humid</variable>
+  </variables>
+  <block type="program_try_except" id="8TaKi/7O[r-rK3#l=yRE" x="310" y="270">
+    <field name="EXCEPTION_TYPE0">KeyboardInterrupt</field>
+    <statement name="TRY">
+      <block type="custom_while" id="mO,;[[P/n3LPD2@So2#g">
+        <value name="CONDITION">
+          <block type="logic_boolean" id="l#y|e@[3CQ-hm!8X7T/`">
+            <field name="BOOL">TRUE</field>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="variables_set" id="P8tq#?ak%{GxXF/QtU{^">
+            <field name="VAR" id="})=S*h@,9Llu?|Hy=Bz{">Smoke</field>
+            <value name="VALUE">
+              <block type="Smoke_read" id="IWXPlj5es%?xMk24jZm3"></block>
+            </value>
+            <next>
+              <block type="variables_set" id="Mdk|2dC}fxa#0N1s8=~R">
+                <field name="VAR" id="afpPn^mZz={(2p`Jth:M">Temp</field>
+                <value name="VALUE">
+                  <block type="DHT_temperature" id="*_dU(su6N?KJdDhRe4Cb"></block>
+                </value>
+                <next>
+                  <block type="variables_set" id="n6sHl67O$u2#)dYriR]X">
+                    <field name="VAR" id="?ERpt4h?_5@:5(4U~%sz">Dist</field>
+                    <value name="VALUE">
+                      <block type="SONAR_distance" id="G}l{NV?!C:-ae((RUS{_"></block>
+                    </value>
+                    <next>
+                      <block type="text_print" id="qB{g^AV=([?+iY;Z?zq0">
+                        <value name="TEXT">
+                          <block type="variables_get" id="m917;-ey.Cijr4_1E+-$">
+                            <field name="VAR" id="?ERpt4h?_5@:5(4U~%sz">Dist</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="text_print" id="{]mX%TiP~e/fo.:gu+7P">
+                            <value name="TEXT">
+                              <block type="text" id="h@a;YY|JZT4O)iAPU8OF">
+                                <field name="TEXT">    SMOKE: </field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="text_print" id="%.b$=-x5NPBQ4LA/z.2C">
+                                <value name="TEXT">
+                                  <block type="variables_get" id="],jh,eVq[aS}SaR]h5iS">
+                                    <field name="VAR" id="})=S*h@,9Llu?|Hy=Bz{">Smoke</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="text_print" id="vRpp)pNQSdB]w;.SCwWg">
+                                    <value name="TEXT">
+                                      <block type="text" id="Aj@]In!qv1JPf]=C#i7Q">
+                                        <field name="TEXT">    TEMP: </field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="text_print" id="UCV7R6m$=uAQLImOXO_c">
+                                        <value name="TEXT">
+                                          <block type="variables_get" id="#o|-;V-YmkqwNcb@p_p$">
+                                            <field name="VAR" id="afpPn^mZz={(2p`Jth:M">Temp</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="text_print" id="j2*)wNBS*vl(HV$3Y#I1">
+                                            <value name="TEXT">
+                                              <block type="text" id="M-NxKt$i?i7g(IhKv;+j">
+                                                <field name="TEXT">    HUMID: </field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="text_print" id="bSO%QsBIv8m7$VH=JlLu">
+                                                <value name="TEXT">
+                                                  <block type="variables_get" id="DGoM4]T?pq;G`Wsgrd(n">
+                                                    <field name="VAR" id="7*DpIC_p`6z[4AbG,PPI">Humid</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>

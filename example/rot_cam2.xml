@@ -1,0 +1,60 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="program_try_except" id="v=P]me]WYUV;LJNoqr-p" x="14" y="104">
+    <field name="EXCEPTION_TYPE0">KeyboardInterrupt</field>
+    <statement name="TRY">
+      <block type="SERVO" id="k2jkrVeqnCwEW4RFz!3Z">
+        <field name="SERVO_STATE">start</field>
+        <next>
+          <block type="custom_while" id="0b3aO6#9P=STE2KHqhxW">
+            <value name="CONDITION">
+              <block type="logic_boolean" id="1RdUE8,Z{/LOvc}{DO92">
+                <field name="BOOL">TRUE</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="SERVO_angle" id="R!Dw6G@W{,8;yUkSywPu">
+                <value name="ANGLE">
+                  <block type="math_number" id="!X`z.Lm$BH#?ovx3UYO^">
+                    <field name="NUM">90</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="time_sleep" id="RdPdo.qOoO7nwRy085ZD">
+                    <value name="SECONDS">
+                      <block type="math_number" id="#gv1YF.%MpplGa?ddctE">
+                        <field name="NUM">5</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="SERVO_angle" id="5:iD=$e_EQ4r-(u5?SGl">
+                        <value name="ANGLE">
+                          <block type="math_number" id="97aRM35oe/52=aSD|Hd.">
+                            <field name="NUM">180</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="time_sleep" id="g#fX)KX.2TKOl8=W{L:G">
+                            <value name="SECONDS">
+                              <block type="math_number" id="_LOpSzInJWU:`V._0Yos">
+                                <field name="NUM">5</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="FINALLY">
+      <block type="SERVO" id="go@+3PFJ.,aITw(c4Blz">
+        <field name="SERVO_STATE">start</field>
+      </block>
+    </statement>
+  </block>
+</xml>

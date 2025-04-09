@@ -18,8 +18,23 @@ Blockly.Blocks['custom_while'] = {
 
 pythonGenerator.forBlock['custom_while'] = function(block) {
   var condition = pythonGenerator.valueToCode(block, 'CONDITION',
-      pythonGenerator.ORDER_NONE) || 'False';
+      pythonGenerator.ORDER_NONE) || 'True';
   var branch = pythonGenerator.statementToCode(block, 'DO') || 
       pythonGenerator.PASS;
   return 'while ' + condition + ':\n' + branch;
 }; 
+
+Blockly.Blocks['loop_break'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField('break loop');
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(120);
+    this.setTooltip('Break out of the current loop');
+  }
+};
+
+pythonGenerator.forBlock['loop_break'] = function(block) {
+  return 'break\n';
+}

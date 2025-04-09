@@ -1,0 +1,124 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="E}9}MhOB=a@w}-dHf8n=">i</variable>
+  </variables>
+  <block type="program_try_except" id="9w!KZ74,amFU]V@I);w4" x="70" y="30">
+    <field name="EXCEPTION_TYPE0">KeyboardInterrupt</field>
+    <statement name="TRY">
+      <block type="text_print" id="JcO({:{:|Y?L,Xw:?|bd">
+        <value name="TEXT">
+          <block type="text" id="V|4Y$)25IO/siU274c=p">
+            <field name="TEXT">PROGRAM START !!!</field>
+          </block>
+        </value>
+        <next>
+          <block type="custom_while" id="Zh=@Ad55KuAvZ=UeF#yZ">
+            <value name="CONDITION">
+              <block type="logic_boolean" id="=AZdDo1]S/@4/WbA|H[t">
+                <field name="BOOL">TRUE</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="controls_for" id="#x{)VFT+V%iL_--AqCSd">
+                <field name="VAR" id="E}9}MhOB=a@w}-dHf8n=">i</field>
+                <value name="FROM">
+                  <block type="math_number" id="h5a5|aqN[@YFxq#_Qo`M">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <value name="TO">
+                  <block type="math_number" id="yIi{nGE#(O98o#?Fe}YY">
+                    <field name="NUM">8</field>
+                  </block>
+                </value>
+                <value name="BY">
+                  <block type="math_number" id="O^Z.,*+5:z.^`:@|SMjK">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="LEDs_update_by_number" id="_-K)K;~Fse0p5zECSE9r">
+                    <value name="LED_NUMBER">
+                      <block type="variables_get" id="_/iv+VRwi%,.*=KwIZf?">
+                        <field name="VAR" id="E}9}MhOB=a@w}-dHf8n=">i</field>
+                      </block>
+                    </value>
+                    <value name="state">
+                      <block type="logic_boolean" id="T[w2sh@3@=86a}6vzwY@">
+                        <field name="BOOL">TRUE</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="time_sleep" id="2z=y/_RvF%=s!1$^G]9G">
+                        <value name="SECONDS">
+                          <block type="math_number" id="c~5u^g~~(;6bb,[n9W|P">
+                            <field name="NUM">0.5</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <next>
+                  <block type="controls_for" id="qqm9$brG*9RTevU)/o~a">
+                    <field name="VAR" id="E}9}MhOB=a@w}-dHf8n=">i</field>
+                    <value name="FROM">
+                      <block type="math_number" id="8[g-hp:aT{$)_R6PbD!f">
+                        <field name="NUM">8</field>
+                      </block>
+                    </value>
+                    <value name="TO">
+                      <block type="math_number" id="AMDkzUdx5~%k)1zyC%1*">
+                        <field name="NUM">1</field>
+                      </block>
+                    </value>
+                    <value name="BY">
+                      <block type="math_number" id="HdlSK}{{Xb3~!g/g5~K%">
+                        <field name="NUM">-1</field>
+                      </block>
+                    </value>
+                    <statement name="DO">
+                      <block type="LEDs_update_by_number" id="di5~d4C].5?.|QQ=|N)m">
+                        <value name="LED_NUMBER">
+                          <block type="variables_get" id="llUHFaCB;WMhba/;]6;Y">
+                            <field name="VAR" id="E}9}MhOB=a@w}-dHf8n=">i</field>
+                          </block>
+                        </value>
+                        <value name="state">
+                          <block type="logic_boolean" id="^lIb$SB1:|98:JhLfO7h">
+                            <field name="BOOL">FALSE</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="time_sleep" id="3ol;FuZQN$]0EAMs/Ila">
+                            <value name="SECONDS">
+                              <block type="math_number" id="lg,RF(Na0QUpa93e`~XV">
+                                <field name="NUM">0.5</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="EXCEPT0">
+      <block type="LEDs_clear" id="aoT(v1{G?p//HI!c4S+l"></block>
+    </statement>
+    <statement name="FINALLY">
+      <block type="text_print" id="|%y.+K:2wKQB%H7u*g1|">
+        <value name="TEXT">
+          <block type="text" id="~7*870%b*/U?lO}SbC7#">
+            <field name="TEXT">PROGRAM STOP !!!</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+</xml>

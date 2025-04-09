@@ -1,0 +1,171 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="E}9}MhOB=a@w}-dHf8n=">i</variable>
+  </variables>
+  <block type="program_try_except" id="9w!KZ74,amFU]V@I);w4" x="190" y="270">
+    <field name="EXCEPTION_TYPE0">KeyboardInterrupt</field>
+    <statement name="TRY">
+      <block type="LCD_begin" id="ZGA`up1ErneTf/A,rWE,">
+        <next>
+          <block type="LCD_backlight" id="nr{RYYifkB#3;V-`C4Jf">
+            <field name="STATE">1</field>
+            <next>
+              <block type="LCD_setCursor" id="_y%%p1+zDtPzp}~Mt**U">
+                <value name="COL">
+                  <block type="math_number" id="KwkTV`b${]#A:6!3bd{n">
+                    <field name="NUM">5</field>
+                  </block>
+                </value>
+                <value name="ROW">
+                  <block type="math_number" id="c2wDde1lMs-vhv!(*4*d">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="LCD_print" id="]-P.zwLDa@i]A]0%Z!5d">
+                    <value name="TEXT">
+                      <block type="text" id="/eQ34v[5E47!?sqsL{X#">
+                        <field name="TEXT">UETX</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="LCD_setCursor" id="n;o]X3N$VD,4zvj{6Cti">
+                        <value name="COL">
+                          <block type="math_number" id="c#uJbKH*+_tvq3;,#)s?">
+                            <field name="NUM">3</field>
+                          </block>
+                        </value>
+                        <value name="ROW">
+                          <block type="math_number" id="]5XfA5tV3+!6(nRAlSFR">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="LCD_print" id="*@*8ijBoFF--1p|N]Yx#">
+                            <value name="TEXT">
+                              <block type="text" id="%ELN,b}7J0;:;[?9y{H*">
+                                <field name="TEXT">WELCOME</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="custom_while" id="Zh=@Ad55KuAvZ=UeF#yZ">
+                                <value name="CONDITION">
+                                  <block type="logic_boolean" id="=AZdDo1]S/@4/WbA|H[t">
+                                    <field name="BOOL">TRUE</field>
+                                  </block>
+                                </value>
+                                <statement name="DO">
+                                  <block type="controls_for" id="#x{)VFT+V%iL_--AqCSd">
+                                    <field name="VAR" id="E}9}MhOB=a@w}-dHf8n=">i</field>
+                                    <value name="FROM">
+                                      <block type="math_number" id="h5a5|aqN[@YFxq#_Qo`M">
+                                        <field name="NUM">1</field>
+                                      </block>
+                                    </value>
+                                    <value name="TO">
+                                      <block type="math_number" id="yIi{nGE#(O98o#?Fe}YY">
+                                        <field name="NUM">8</field>
+                                      </block>
+                                    </value>
+                                    <value name="BY">
+                                      <block type="math_number" id="O^Z.,*+5:z.^`:@|SMjK">
+                                        <field name="NUM">1</field>
+                                      </block>
+                                    </value>
+                                    <statement name="DO">
+                                      <block type="LEDs_update_by_number" id="_-K)K;~Fse0p5zECSE9r">
+                                        <value name="LED_NUMBER">
+                                          <block type="variables_get" id="_/iv+VRwi%,.*=KwIZf?">
+                                            <field name="VAR" id="E}9}MhOB=a@w}-dHf8n=">i</field>
+                                          </block>
+                                        </value>
+                                        <value name="state">
+                                          <block type="logic_boolean" id="T[w2sh@3@=86a}6vzwY@">
+                                            <field name="BOOL">TRUE</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="time_sleep" id="%u=IPLhw-.usX|ir$|d}">
+                                            <value name="SECONDS">
+                                              <block type="math_number" id="z(V3gaxCt@;RkT|5G}7(">
+                                                <field name="NUM">0.5</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </statement>
+                                    <next>
+                                      <block type="controls_for" id="qqm9$brG*9RTevU)/o~a">
+                                        <field name="VAR" id="E}9}MhOB=a@w}-dHf8n=">i</field>
+                                        <value name="FROM">
+                                          <block type="math_number" id="8[g-hp:aT{$)_R6PbD!f">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                        <value name="TO">
+                                          <block type="math_number" id="AMDkzUdx5~%k)1zyC%1*">
+                                            <field name="NUM">8</field>
+                                          </block>
+                                        </value>
+                                        <value name="BY">
+                                          <block type="math_number" id="HdlSK}{{Xb3~!g/g5~K%">
+                                            <field name="NUM">1</field>
+                                          </block>
+                                        </value>
+                                        <statement name="DO">
+                                          <block type="LEDs_update_by_number" id="di5~d4C].5?.|QQ=|N)m">
+                                            <value name="LED_NUMBER">
+                                              <block type="variables_get" id="llUHFaCB;WMhba/;]6;Y">
+                                                <field name="VAR" id="E}9}MhOB=a@w}-dHf8n=">i</field>
+                                              </block>
+                                            </value>
+                                            <value name="state">
+                                              <block type="logic_boolean" id="^lIb$SB1:|98:JhLfO7h">
+                                                <field name="BOOL">FALSE</field>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="time_sleep" id="59WIs%O$(lEM^,eM5XDd">
+                                                <value name="SECONDS">
+                                                  <block type="math_number" id="){E,aZUa^_S2Qv2G]**h">
+                                                    <field name="NUM">0.5</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </statement>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="EXCEPT0">
+      <block type="LEDs_clear" id="aoT(v1{G?p//HI!c4S+l">
+        <next>
+          <block type="LCD_clear" id="W{*T3]{g-K[Sl]2kik7|">
+            <next>
+              <block type="LCD_backlight" id="2MKTmY9T+4E1{3CnQ7!_">
+                <field name="STATE">0</field>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

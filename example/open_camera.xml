@@ -1,0 +1,59 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="N]-1RFDTDPgv}@[_0VBF">img</variable>
+  </variables>
+  <block type="program_try_except" id="G;tDN|dpr8v?LU2-?+gI" x="150" y="250">
+    <field name="EXCEPTION_TYPE0">KeyboardInterrupt</field>
+    <statement name="TRY">
+      <block type="camera_start" id="OL}|I@CD:[se=0sH))59">
+        <next>
+          <block type="custom_while" id="SiOCU2{?h]-B=I7/^T+G">
+            <statement name="DO">
+              <block type="variables_set" id="2,:qmXg;c|;rUfUy9x!N">
+                <field name="VAR" id="N]-1RFDTDPgv}@[_0VBF">img</field>
+                <value name="VALUE">
+                  <block type="camera_capture" id=";;M_Mgls$6p,@fGug(Ek"></block>
+                </value>
+                <next>
+                  <block type="variables_set" id="[rY5rN2AYv6HPr#zbp9X">
+                    <field name="VAR" id="N]-1RFDTDPgv}@[_0VBF">img</field>
+                    <value name="VALUE">
+                      <block type="opencv_rotate" id="ZXN*7ZlOqDAf]IIc2~B*">
+                        <field name="IMAGE" id="N]-1RFDTDPgv}@[_0VBF">img</field>
+                        <field name="ANGLE">cv2.ROTATE_180</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="opencv_imshow" id="X9R%8%sZqB6D6vQ+B=DK">
+                        <field name="IMAGE" id="N]-1RFDTDPgv}@[_0VBF">img</field>
+                        <next>
+                          <block type="controls_if" id="%)P{ITkVPI38Pu|Gl.DG">
+                            <value name="IF0">
+                              <block type="opencv_waitKey" id="4T[?o7no.a~Rpxh)Wfy0">
+                                <field name="DELAY">0</field>
+                              </block>
+                            </value>
+                            <statement name="DO0">
+                              <block type="loop_break" id="*aY2QI6hAHz498[a-L#-"></block>
+                            </statement>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="FINALLY">
+      <block type="opencv_destroyAllWindows" id="@o`M/8D})^AOpPwj[{%A">
+        <next>
+          <block type="camera_stop" id="RCB7FoQqE/Zgy*DIgV~~"></block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

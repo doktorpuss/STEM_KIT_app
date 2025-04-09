@@ -23,10 +23,11 @@ import './blocks/SONAR_blocks';
 import './blocks/DHT_blocks';
 import './blocks/KEYPAD_blocks';
 import './blocks/SWITCH_blocks';
-// import './blocks/struct_blocks';
-// import './blocks/class_blocks';
+import './blocks/opencv_blocks';
+import './blocks/class_blocks';
 import './blocks/arrays_blocks';
-// import './blocks/dictionaries_blocks';
+import './blocks/numpy_blocks';
+import './blocks/Camera_blocks';
 import './blocks/custom_while';
 import './blocks/program_structure_blocks';
 // Định nghĩa màu sắc cho các khối
@@ -96,6 +97,7 @@ const INITIAL_TOOLBOX_JSON = {
         { "kind": "block", "type": "custom_while" },
         { "kind": "block", "type": "controls_for" },
         { "kind": "block", "type": "controls_forEach" },
+        { "kind": "block", "type": "loop_break" }
       ]
     },
     {
@@ -122,36 +124,17 @@ const INITIAL_TOOLBOX_JSON = {
         { "kind": "block", "type": "array_insert" }
       ]
     },
-    // {
-    //   "kind": "category",
-    //   "name": "Struct",
-    //   "categorystyle": "struct_category",
-    //   "contents": [
-    //     { "kind": "block", "type": "struct_create" },
-    //     { "kind": "block", "type": "struct_get" },
-    //     { "kind": "block", "type": "struct_set" }
-    //   ]
-    // },
-    // {
-    //   "kind": "category",
-    //   "name": "Dictionaries",
-    //   "categorystyle": "dictionary_category",
-    //   "contents": [
-    //     { "kind": "block", "type": "dictionaries_create" },
-    //     { "kind": "block", "type": "dictionaries_get" },
-    //     { "kind": "block", "type": "dictionaries_set" }
-    //   ]
-    // },
-    // {
-    //   "kind": "category",
-    //   "name": "Classes",
-    //   "categorystyle": "class_category",
-    //   "contents": [
-    //     { "kind": "block", "type": "class_create" },
-    //     { "kind": "block", "type": "class_get" },
-    //     { "kind": "block", "type": "class_set" }
-    //   ]
-    // },
+    {
+      "kind": "category",
+      "name": "Class",
+      "categorystyle": "class_category",
+      "contents": [
+        { "kind": "block", "type": "class_create" },
+        { "kind": "block", "type": "class_instance" },
+        { "kind": "block", "type": "class_get" },
+        { "kind": "block", "type": "class_set" }
+      ]
+    },
     {
       "kind": "category",
       "name": "Lists",
@@ -235,6 +218,46 @@ const INITIAL_TOOLBOX_JSON = {
         { "kind": "block", "type": "KEYPAD_available" },
         { "kind": "block", "type": "KEYPAD_read" }
       ]
+    },
+    {
+      "kind": "category",
+      "name": "OpenCV",
+      "categorystyle": "opencv_category",
+      "contents": [
+        { "kind": "block", "type": "opencv_imshow" },
+        { "kind": "block", "type": "opencv_imread" },
+        { "kind": "block", "type": "opencv_imwrite" },
+        { "kind": "block", "type": "opencv_rotate" },
+        { "kind": "block", "type": "opencv_flip" },
+        // { "kind": "block", "type": "opencv_getRotationMatrix2D" },
+        // { "kind": "block", "type": "opencv_warpAffine" },
+        { "kind": "block", "type": "opencv_waitKey" },
+        { "kind": "block", "type": "opencv_destroyAllWindows" }
+      ]
+    },
+    {
+      "kind": "category",
+      "name": "Numpy",
+      "categorystyle": "numpy_category",
+      "contents": [
+        { "kind": "block", "type": "numpy_array" },
+        { "kind": "block", "type": "numpy_linspace" },
+        { "kind": "block", "type": "numpy_arange" },
+        { "kind": "block", "type": "numpy_eye" },
+        { "kind": "block", "type": "numpy_zeros" },
+        { "kind": "block", "type": "numpy_ones" },
+        { "kind": "block", "type": "numpy_exp" }
+      ]
+    },
+    {
+      "kind": "category",
+      "name": "Camera",
+      "categorystyle": "camera_category",
+      "contents": [
+        { "kind": "block", "type": "camera_start" },
+        { "kind": "block", "type": "camera_stop" },
+        { "kind": "block", "type": "camera_capture" }
+      ]
     }
   ]
 };
@@ -268,7 +291,11 @@ const blocklyTheme = Blockly.Theme.defineTheme('custom', {
     'actuator_category': { 'colour': '200' },
     'sensor_category': { 'colour': '220' },
     'active_input_category': { 'colour': '240' },
-    'array_category': { 'colour': '260' }
+    'array_category': { 'colour': '260' },
+    'opencv_category': { 'colour': '280' },
+    'class_category': { 'colour': '300' },
+    'numpy_category': { 'colour': '320' },
+    'camera_category': { 'colour': '340' }
   }
 });
 

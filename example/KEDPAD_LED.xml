@@ -1,0 +1,163 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="TwBxW=0{Yh=Tt+j)jJ()">char</variable>
+  </variables>
+  <block type="program_try_except" id="3HubIN_C{~s5:~M=,ZG0" x="-90" y="-50">
+    <field name="EXCEPTION_TYPE0">KeyboardInterrupt</field>
+    <statement name="TRY">
+      <block type="KEYPAD_start" id="mNlovfuAzq~*W=^Ys`ys">
+        <next>
+          <block type="custom_while" id="H1WDJ`wjDRz*S4!qUzN,">
+            <value name="CONDITION">
+              <block type="logic_boolean" id="XK)Ko$F+bT5jm{lsV/fn">
+                <field name="BOOL">TRUE</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="controls_if" id="(9v@,+;AR@^Kh;[WS*Ce">
+                <value name="IF0">
+                  <block type="KEYPAD_available" id="R%_6tnU=B$XG0pfl8062"></block>
+                </value>
+                <statement name="DO0">
+                  <block type="variables_set" id="_pp1/66D7^zbLPB$DK6V">
+                    <field name="VAR" id="TwBxW=0{Yh=Tt+j)jJ()">char</field>
+                    <value name="VALUE">
+                      <block type="KEYPAD_read" id="JVB_h8`d#?H4$cvA$c9J"></block>
+                    </value>
+                    <next>
+                      <block type="controls_if" id="0wr:83R1?2+:E|/5z0#C">
+                        <mutation elseif="3" else="1"></mutation>
+                        <value name="IF0">
+                          <block type="logic_compare" id="5M?#Wc|=ZkG!xx,s:RF3">
+                            <field name="OP">EQ</field>
+                            <value name="A">
+                              <block type="variables_get" id="HQK,L$]2yEwjcKdTdCBs">
+                                <field name="VAR" id="TwBxW=0{Yh=Tt+j)jJ()">char</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="text" id="_H6RIwb=(CW$Gk27pi6|">
+                                <field name="TEXT">4</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO0">
+                          <block type="LEDs_update_by_number" id="K_=7E`:0S=p+%V[[NsEX">
+                            <value name="LED_NUMBER">
+                              <block type="math_number" id="#oJL?7N*}B{_.$*3cJJE">
+                                <field name="NUM">4</field>
+                              </block>
+                            </value>
+                            <value name="state">
+                              <block type="logic_boolean" id="91ZuwcQ[tMTV@og5{P)[">
+                                <field name="BOOL">TRUE</field>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                        <value name="IF1">
+                          <block type="logic_compare" id="YzaA-HjUZ/0E*P_t;cB#">
+                            <field name="OP">EQ</field>
+                            <value name="A">
+                              <block type="variables_get" id="03$~WRqp{hJ6!wG0?xpc">
+                                <field name="VAR" id="TwBxW=0{Yh=Tt+j)jJ()">char</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="text" id="a[vU|`:1j*M#rbu1%(|d">
+                                <field name="TEXT">1</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO1">
+                          <block type="LEDs_update_by_number" id="`E:HkTh{pTYSZ*?L$j{!">
+                            <value name="LED_NUMBER">
+                              <block type="math_number" id="a[S4?/aU@{/qT0X#;W}#">
+                                <field name="NUM">1</field>
+                              </block>
+                            </value>
+                            <value name="state">
+                              <block type="logic_boolean" id="4=^;p%q2L.DQFleZ!y1x">
+                                <field name="BOOL">TRUE</field>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                        <value name="IF2">
+                          <block type="logic_compare" id="(I0/KWe5_KhWapD+gIXp">
+                            <field name="OP">EQ</field>
+                            <value name="A">
+                              <block type="variables_get" id="7T;S.xR?qq.;-8lzN|Fb">
+                                <field name="VAR" id="TwBxW=0{Yh=Tt+j)jJ()">char</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="text" id="vLS:4-=74Rx%}.}ND6(r">
+                                <field name="TEXT">2</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO2">
+                          <block type="LEDs_update_by_number" id="p@(iSE#yR7R[LQ7uY/+H">
+                            <value name="LED_NUMBER">
+                              <block type="math_number" id="Wg=Aa((qbmJe[xbi]Yw`">
+                                <field name="NUM">2</field>
+                              </block>
+                            </value>
+                            <value name="state">
+                              <block type="logic_boolean" id="CQIA8aJP4nf$nw*NlahQ">
+                                <field name="BOOL">TRUE</field>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                        <value name="IF3">
+                          <block type="logic_compare" id="#?2)q0u}b(jF{LUxkGOP">
+                            <field name="OP">EQ</field>
+                            <value name="A">
+                              <block type="variables_get" id="qy.o=7FQA5bey,TS`dA#">
+                                <field name="VAR" id="TwBxW=0{Yh=Tt+j)jJ()">char</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <block type="text" id="s_0+mzv]2gbRU%2r7}Jx">
+                                <field name="TEXT">3</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <statement name="DO3">
+                          <block type="LEDs_update_by_number" id="fbDH.8?H0}:mQQ}+/org">
+                            <value name="LED_NUMBER">
+                              <block type="math_number" id="z,Yu]{ETEW~IkbLT.IWj">
+                                <field name="NUM">3</field>
+                              </block>
+                            </value>
+                            <value name="state">
+                              <block type="logic_boolean" id="n/uZn4GAP?)1NrS^u:$f">
+                                <field name="BOOL">TRUE</field>
+                              </block>
+                            </value>
+                          </block>
+                        </statement>
+                        <statement name="ELSE">
+                          <block type="LEDs_clear" id="oIVV}_`O=xd;BMgi1@]v"></block>
+                        </statement>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="EXCEPT0">
+      <block type="KEYPAD_stop" id="JYmkB+Ce+rC@PnL^jhMV"></block>
+    </statement>
+  </block>
+</xml>

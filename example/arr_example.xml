@@ -1,0 +1,57 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="PM-y5KS*xvhPqw.su/Rr">start</variable>
+    <variable id="WXO|#E`5[D|XFV~g$!T@">end</variable>
+    <variable id="-/h6%D%vS(cB`RTFIu9k">step</variable>
+    <variable id="r)/68Vw!_ud/X8foH5~V">arr</variable>
+  </variables>
+  <block type="variables_set" id="VbRy.0j]hD/fw4r*(Y|p" x="70" y="150">
+    <field name="VAR" id="PM-y5KS*xvhPqw.su/Rr">start</field>
+    <value name="VALUE">
+      <block type="math_number" id="6xFW-E]nyEm_0~#+S^8H">
+        <field name="NUM">0</field>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set" id="509Q`]TY-?E8tO-GW=l#">
+        <field name="VAR" id="WXO|#E`5[D|XFV~g$!T@">end</field>
+        <value name="VALUE">
+          <block type="math_number" id="gpVx/)~L(:=$]okH5uq{">
+            <field name="NUM">10</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="eAeMQTrCR8yf|Eg%OQt:">
+            <field name="VAR" id="-/h6%D%vS(cB`RTFIu9k">step</field>
+            <value name="VALUE">
+              <block type="math_number" id="+as:zY40p8U@:6[^)BTf">
+                <field name="NUM">1</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="{A$*|}_G1t;Kd`@WU~^$">
+                <field name="VAR" id="r)/68Vw!_ud/X8foH5~V">arr</field>
+                <value name="VALUE">
+                  <block type="numpy_arange" id="85h3ByIpiu1x^UV_,O-b">
+                    <field name="START">start</field>
+                    <field name="END">end</field>
+                    <field name="STEP">step</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="text_print" id="w.Ybl@VZoeoc]CfH?MJi">
+                    <value name="TEXT">
+                      <block type="variables_get" id="KEa,lo:{b`$]a0%m!T$`">
+                        <field name="VAR" id="r)/68Vw!_ud/X8foH5~V">arr</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

@@ -1,0 +1,167 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="^8`hU_`ZJ)h}WSyFqGP~">value</variable>
+    <variable id="rsFBy!w-7i`Y!_vslB{A">MAX_COLOR_VALUE</variable>
+    <variable id="+K[3jdKEI9kCiqJ~k1.R">ADC_MAX_VALUE</variable>
+    <variable id="^_[W}[4.I0YDFj6jq=X|">R</variable>
+    <variable id="t(:2W:_B{CRAX%6/7]yv">G</variable>
+    <variable id="%yM|gWNaQYoQH{.ZFd%,">B</variable>
+  </variables>
+  <block type="variables_set" id="H+Z,Y1Djd6u*TtKKQry{" x="170" y="110">
+    <field name="VAR" id="rsFBy!w-7i`Y!_vslB{A">MAX_COLOR_VALUE</field>
+    <value name="VALUE">
+      <block type="math_number" id="Vbsf{ZWAg{h(H,Cxy/{|">
+        <field name="NUM">255</field>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set" id="/6?pj^}J?(6.YKer7kqb">
+        <field name="VAR" id="+K[3jdKEI9kCiqJ~k1.R">ADC_MAX_VALUE</field>
+        <value name="VALUE">
+          <block type="math_number" id="D%U.zq6^T:t/03rfxa1{">
+            <field name="NUM">4096</field>
+          </block>
+        </value>
+      </block>
+    </next>
+  </block>
+  <block type="procedures_defreturn" id="BI4$eyM}w4)aZnLn6B)6" x="170" y="170">
+    <mutation statements="false">
+      <arg name="value" varid="^8`hU_`ZJ)h}WSyFqGP~"></arg>
+    </mutation>
+    <field name="NAME">unify</field>
+    <comment pinned="false" h="80" w="160">Describe this function...</comment>
+    <value name="RETURN">
+      <block type="math_arithmetic" id="Pja7By%LsD3GKrTu2V6r">
+        <field name="OP">MULTIPLY</field>
+        <value name="A">
+          <block type="math_arithmetic" id="):+UWgTCQU|kp@~9zm:0">
+            <field name="OP">DIVIDE</field>
+            <value name="A">
+              <block type="variables_get" id="}xGW+Mlsm:.oL,WbQG@8">
+                <field name="VAR" id="^8`hU_`ZJ)h}WSyFqGP~">value</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="variables_get" id="vrbb$E@WIU/RN,2z_v{_">
+                <field name="VAR" id="+K[3jdKEI9kCiqJ~k1.R">ADC_MAX_VALUE</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="B">
+          <block type="variables_get" id="iJx*f3^;;1[7ua}RLzC_">
+            <field name="VAR" id="rsFBy!w-7i`Y!_vslB{A">MAX_COLOR_VALUE</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="program_try_except" id="9w!KZ74,amFU]V@I);w4" x="170" y="250">
+    <field name="EXCEPTION_TYPE0">KeyboardInterrupt</field>
+    <statement name="TRY">
+      <block type="RGB_start" id="n9gwU8[G:;O1]cf7;7,1">
+        <next>
+          <block type="text_print" id="[m@^7,A6uBAr,N@5DCK1">
+            <value name="TEXT">
+              <block type="text" id="M}$I@`?77%ckcl}Li#Tw">
+                <field name="TEXT">RGB START</field>
+              </block>
+            </value>
+            <next>
+              <block type="custom_while" id="t-ju(}(G{S7Y9E(8aYr2">
+                <value name="CONDITION">
+                  <block type="logic_boolean" id="vdu2,iLgs^2|WbqPSrN`">
+                    <field name="BOOL">TRUE</field>
+                  </block>
+                </value>
+                <statement name="DO">
+                  <block type="variables_set" id="HU2qYaDxA73v%eHNoQ}w">
+                    <field name="VAR" id="^_[W}[4.I0YDFj6jq=X|">R</field>
+                    <value name="VALUE">
+                      <block type="procedures_callreturn" id="qkLu2hM-tT2~8z%IKm~4">
+                        <mutation name="unify">
+                          <arg name="value"></arg>
+                        </mutation>
+                        <value name="ARG0">
+                          <block type="Potentiometer_read" id="0x1L~9oK4P0%*n.czsYe">
+                            <field name="Pot_ID">0</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set" id="QI.Vqew$FCz*vO,078Cq">
+                        <field name="VAR" id="t(:2W:_B{CRAX%6/7]yv">G</field>
+                        <value name="VALUE">
+                          <block type="procedures_callreturn" id="%RJeCfxz2UZ,UAubADWY">
+                            <mutation name="unify">
+                              <arg name="value"></arg>
+                            </mutation>
+                            <value name="ARG0">
+                              <block type="Potentiometer_read" id="Icm[.`ptm`%s`_gM$,)`">
+                                <field name="Pot_ID">1</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set" id="*}Q/*BvAcE;eAA9.@C5w">
+                            <field name="VAR" id="%yM|gWNaQYoQH{.ZFd%,">B</field>
+                            <value name="VALUE">
+                              <block type="procedures_callreturn" id="AJd4Rp39g/HMaBxKXCRC">
+                                <mutation name="unify">
+                                  <arg name="value"></arg>
+                                </mutation>
+                                <value name="ARG0">
+                                  <block type="Potentiometer_read" id="!J//$nG/By.{R,z_3=XO">
+                                    <field name="Pot_ID">2</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="RGB_color" id="TnJ4YM2.,;Ue]8.Ls)mJ">
+                                <value name="RED">
+                                  <block type="variables_get" id="J+gRyjRsLC40HFd92nVT">
+                                    <field name="VAR" id="^_[W}[4.I0YDFj6jq=X|">R</field>
+                                  </block>
+                                </value>
+                                <value name="GREEN">
+                                  <block type="variables_get" id="|yXDgfs^yg1#Mb1tAAiB">
+                                    <field name="VAR" id="t(:2W:_B{CRAX%6/7]yv">G</field>
+                                  </block>
+                                </value>
+                                <value name="BLUE">
+                                  <block type="variables_get" id="R9O7-/K5~g9PxktpU5}d">
+                                    <field name="VAR" id="%yM|gWNaQYoQH{.ZFd%,">B</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="EXCEPT0">
+      <block type="RGB_stop" id="8-$A*LlQDheB8-M-[9]G"></block>
+    </statement>
+    <statement name="FINALLY">
+      <block type="text_print" id="2M)%by(u_WLw)4X0TqgC">
+        <value name="TEXT">
+          <block type="text" id="^eJzb5!kG@+DIgpjx{QG">
+            <field name="TEXT">RGB STOP</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+</xml>

@@ -1,0 +1,27 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="}P`DU#3m68i@E@eJ[ueb">img</variable>
+  </variables>
+  <block type="variables_set" id="P1{@XeoygGun#Jy{P#At" x="250" y="210">
+    <field name="VAR" id="}P`DU#3m68i@E@eJ[ueb">img</field>
+    <value name="VALUE">
+      <block type="opencv_imread" id="a]F*7pW?4K%O,K7|bt4k">
+        <field name="IMAGE">image.jpg</field>
+      </block>
+    </value>
+    <next>
+      <block type="custom_while" id="bKi|}GbyxXqRdC=KSRV/">
+        <value name="CONDITION">
+          <block type="logic_boolean" id="XvnY1_aPTz6fv^=K0fsd">
+            <field name="BOOL">TRUE</field>
+          </block>
+        </value>
+        <statement name="DO">
+          <block type="opencv_imshow" id="(3cF7PTsFf5*CD,Kjv25">
+            <field name="IMAGE" id="}P`DU#3m68i@E@eJ[ueb">img</field>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>
