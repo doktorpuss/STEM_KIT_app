@@ -164,6 +164,16 @@ cd ..
 python3 main.py
 ```
 
+## Update software version on Raspberrypi
+git fetch --all
+git clean -fd
+git reset --hard origin/main
+
+cd frontend
+├── rm -rf node_modules 
+├── npm install
+
+
 ## Project Structure
 
 After installation, your project structure should look like this:
