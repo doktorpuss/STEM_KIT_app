@@ -141,7 +141,7 @@ Blockly.Blocks['opencv_waitKey'] = {
   init: function() {
     this.appendDummyInput()
         .appendField('wait for')
-        .appendField(new Blockly.FieldTextInput('0'), 'DELAY')
+        .appendField(new Blockly.FieldTextInput('1'), 'DELAY')
         .appendField('milliseconds')
         .appendField('or key press')
     this.setOutput(true, null);
@@ -155,7 +155,7 @@ Blockly.Blocks['opencv_waitKey'] = {
 pythonGenerator.forBlock['opencv_waitKey'] = function(block) {
   pythonGenerator.definitions_['cv2'] = 'import cv2';
   const delay = block.getFieldValue('DELAY');
-  return [`cv2.waitKey(${delay}) `, pythonGenerator.ORDER_FUNCTION_CALL];
+  return [`cv2.waitKey(${delay}) != -1`, pythonGenerator.ORDER_FUNCTION_CALL];
 };
 
 Blockly.Blocks['opencv_destroyAllWindows'] = {
