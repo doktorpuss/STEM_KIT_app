@@ -15,7 +15,7 @@ Blockly.Blocks['opencv_imshow'] = {
 };
 
 pythonGenerator.forBlock['opencv_imshow'] = function(block) {
-  pythonGenerator.definitions_['cv2'] = 'import cv2';
+  pythonGenerator.definitions_['cv2'] = 'import cv2\ncv2.namedWindow("Image", cv2.WINDOW_FULLSCREEN)\ncv2.moveWindow("Image", 192, 60)\n';
   const image = pythonGenerator.getVariableName(block.getFieldValue('IMAGE'));
   return `cv2.imshow('Image', ${image})\n`;
 };
@@ -34,7 +34,7 @@ Blockly.Blocks['opencv_imread'] = {
 };
 
 pythonGenerator.forBlock['opencv_imread'] = function(block) {
-  pythonGenerator.definitions_['cv2'] = 'import cv2';
+  pythonGenerator.definitions_['cv2'] = 'import cv2\ncv2.namedWindow("Image", cv2.WINDOW_FULLSCREEN)\ncv2.moveWindow("Image", 192, 60)\n';
   const image = block.getFieldValue('IMAGE');
   return [`cv2.imread('${image}')`, pythonGenerator.ORDER_FUNCTION_CALL];
 };
@@ -54,7 +54,7 @@ Blockly.Blocks['opencv_imwrite'] = {
 };
 
 pythonGenerator.forBlock['opencv_imwrite'] = function(block) {
-  pythonGenerator.definitions_['cv2'] = 'import cv2';
+  pythonGenerator.definitions_['cv2'] = 'import cv2\ncv2.namedWindow("Image", cv2.WINDOW_FULLSCREEN)\ncv2.moveWindow("Image", 192, 60)\n';
   const image = pythonGenerator.getVariableName(block.getFieldValue('IMAGE'));
   const filename = block.getFieldValue('FILENAME');
   return `cv2.imwrite('${filename}', ${image})\n`;
@@ -80,7 +80,7 @@ Blockly.Blocks['opencv_rotate'] = {
 };
 
 pythonGenerator.forBlock['opencv_rotate'] = function(block) {
-  pythonGenerator.definitions_['cv2'] = 'import cv2';
+  pythonGenerator.definitions_['cv2'] = 'import cv2\ncv2.namedWindow("Image", cv2.WINDOW_FULLSCREEN)\ncv2.moveWindow("Image", 192, 60)\n';
   const image = pythonGenerator.getVariableName(block.getFieldValue('IMAGE'));
   const angle = block.getFieldValue('ANGLE');
   return [`cv2.rotate(${image}, ${angle})`, pythonGenerator.ORDER_FUNCTION_CALL];
@@ -105,7 +105,7 @@ Blockly.Blocks['opencv_flip'] = {
 };
 
 pythonGenerator.forBlock['opencv_flip'] = function(block) {
-  pythonGenerator.definitions_['cv2'] = 'import cv2';
+  pythonGenerator.definitions_['cv2'] = 'import cv2\ncv2.namedWindow("Image", cv2.WINDOW_FULLSCREEN)\ncv2.moveWindow("Image", 192, 60)\n';
   const image = pythonGenerator.getVariableName(block.getFieldValue('IMAGE'));
   const direction = block.getFieldValue('DIRECTION');
   return [`cv2.flip(${image}, ${direction})`, pythonGenerator.ORDER_FUNCTION_CALL];
@@ -130,7 +130,7 @@ Blockly.Blocks['opencv_getRotationMatrix2D'] = {
 };
 
 pythonGenerator.forBlock['opencv_getRotationMatrix2D'] = function(block) {
-  pythonGenerator.definitions_['cv2'] = 'import cv2';
+  pythonGenerator.definitions_['cv2'] = 'import cv2\ncv2.namedWindow("Image", cv2.WINDOW_FULLSCREEN)\ncv2.moveWindow("Image", 192,60)';
   const angle = block.getFieldValue('ANGLE');
   const x = block.getFieldValue('X');
   const y = block.getFieldValue('Y');
@@ -153,7 +153,7 @@ Blockly.Blocks['opencv_waitKey'] = {
 };
 
 pythonGenerator.forBlock['opencv_waitKey'] = function(block) {
-  pythonGenerator.definitions_['cv2'] = 'import cv2';
+  pythonGenerator.definitions_['cv2'] = 'import cv2\ncv2.namedWindow("Image", cv2.WINDOW_FULLSCREEN)\ncv2.moveWindow("Image", 192, 60)\n';
   const delay = block.getFieldValue('DELAY');
   return [`cv2.waitKey(${delay}) != -1`, pythonGenerator.ORDER_FUNCTION_CALL];
 };
@@ -170,7 +170,7 @@ Blockly.Blocks['opencv_destroyAllWindows'] = {
 };
 
 pythonGenerator.forBlock['opencv_destroyAllWindows'] = function(block) {
-  pythonGenerator.definitions_['cv2'] = 'import cv2';
+  pythonGenerator.definitions_['cv2'] = 'import cv2\ncv2.namedWindow("Image", cv2.WINDOW_FULLSCREEN)\ncv2.moveWindow("Image", 192, 60)\n';
   return `cv2.destroyAllWindows()\n`;
 }
 

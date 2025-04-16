@@ -9,6 +9,8 @@ a=np.append(a,np.array([[1,2,3,4,5],[11,12,13,14,15]]),axis=1)
 print(a.shape)
 print(a)
 
+cv2.namedWindow('Image', cv2.WINDOW_FULLSCREEN)
+
 # img = cv2.imread('image.jpg')
 # cv2.imshow('Image', img)
 # time.sleep(10)
