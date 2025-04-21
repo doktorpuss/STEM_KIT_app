@@ -1,0 +1,77 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="8A]/en:XYDo~M~_O+mAG">smoke</variable>
+  </variables>
+  <block type="program_try_except" id="9w!KZ74,amFU]V@I);w4" x="50" y="50">
+    <field name="EXCEPTION_TYPE0">KeyboardInterrupt</field>
+    <statement name="TRY">
+      <block type="text_print" id="JcO({:{:|Y?L,Xw:?|bd">
+        <value name="TEXT">
+          <block type="text" id="V|4Y$)25IO/siU274c=p">
+            <field name="TEXT">PROGRAM START !!!</field>
+          </block>
+        </value>
+        <next>
+          <block type="custom_while" id="Zh=@Ad55KuAvZ=UeF#yZ">
+            <statement name="DO">
+              <block type="variables_set" id="C.7e~=^BF!WmBsN.@T=:">
+                <field name="VAR" id="8A]/en:XYDo~M~_O+mAG">smoke</field>
+                <value name="VALUE">
+                  <block type="Smoke_read" id="8@T)s-p/WsnO#|L#3x/("></block>
+                </value>
+                <next>
+                  <block type="controls_if" id="!Yx?jroOeWo_v?t@G-~%">
+                    <mutation else="1"></mutation>
+                    <value name="IF0">
+                      <block type="logic_compare" id="#:Tk@FYKy]d5tU=u_+3-">
+                        <field name="OP">GT</field>
+                        <value name="A">
+                          <block type="variables_get" id="v+?4Hg,]b6p@B9.v^e~!">
+                            <field name="VAR" id="8A]/en:XYDo~M~_O+mAG">smoke</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="v%733Ysl/F?IYDdtZZ`k">
+                            <field name="NUM">700</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="BUZZER" id="wys2VIcEwmNe!_2|I$L@">
+                        <field name="BUZZER_STATE">on</field>
+                      </block>
+                    </statement>
+                    <statement name="ELSE">
+                      <block type="BUZZER" id="ixDv*/MkszjONcqyS?}M">
+                        <field name="BUZZER_STATE">off</field>
+                      </block>
+                    </statement>
+                    <next>
+                      <block type="text_print" id="9@Rb@oO%)*{:j`^}H1be">
+                        <value name="TEXT">
+                          <block type="variables_get" id="^yYP5rs]7|jwYBf}/T,;">
+                            <field name="VAR" id="8A]/en:XYDo~M~_O+mAG">smoke</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="FINALLY">
+      <block type="text_print" id="|%y.+K:2wKQB%H7u*g1|">
+        <value name="TEXT">
+          <block type="text" id="~7*870%b*/U?lO}SbC7#">
+            <field name="TEXT">PROGRAM STOP !!!</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+</xml>
