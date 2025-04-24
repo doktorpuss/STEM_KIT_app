@@ -2,8 +2,8 @@ import Blockly from 'blockly/core';
 import 'blockly/blocks';
 import { pythonGenerator } from 'blockly/python';
 
-// Mutator cho struct
-Blockly.Blocks['struct_mutator'] = {
+// Mutator cho class
+Blockly.Blocks['class_mutator'] = {
   init: function() {
     this.appendDummyInput()
         .appendField('Fields');
@@ -38,18 +38,18 @@ Blockly.Blocks['field_block'] = {
   }
 };
 
-// Struct block
-Blockly.Blocks['struct_definition'] = {
+// class block
+Blockly.Blocks['class_definition'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField('struct')
-        .appendField(new Blockly.FieldTextInput('MyStruct'), 'STRUCT_NAME');
+        .appendField('class')
+        .appendField(new Blockly.FieldTextInput('Myclass'), 'class_NAME');
     this.appendDummyInput()
         .appendField('fields:');
     this.appendStatementInput('FIELDS')
         .setCheck('Field');
     this.setColour(230);
-    this.setTooltip('Define a struct');
+    this.setTooltip('Define a class');
     this.setMutator(new Blockly.Mutator(['field_block']));
   },
   mutationToDom: function() {
@@ -70,7 +70,7 @@ Blockly.Blocks['struct_definition'] = {
     this.updateShape_();
   },
   decompose: function(workspace) {
-    const containerBlock = workspace.newBlock('struct_mutator');
+    const containerBlock = workspace.newBlock('class_mutator');
     containerBlock.initSvg();
     const connection = containerBlock.nextConnection;
     for (let i = 0; i < this.fields_.length; i++) {
@@ -111,15 +111,15 @@ Blockly.Blocks['struct_definition'] = {
   }
 };
 
-// Python generator cho struct
-pythonGenerator.forBlock['struct_definition'] = function(block) {
-  const structName = block.getFieldValue('STRUCT_NAME');
+// Python generator cho class
+pythonGenerator.forBlock['class_definition'] = function(block) {
+  const className = block.getFieldValue('class_NAME');
   const fields = block.fields_ || [];
   
-  let code = `class ${structName}:\n`;
+  let code = `class ${className}:\n`;
   code += '    def __init__(self';
   
-  // Thêm các tham số cho constructor
+  // Thêm các tham số cho conclassor
   for (const field of fields) {
     code += `, ${field.name}=${field.default || 'None'}`;
   }
@@ -140,7 +140,7 @@ pythonGenerator.forBlock['field_block'] = function(block) {
 };
 
 // Container cho class fields
-Blockly.Blocks['struct_container'] = {
+Blockly.Blocks['class_container'] = {
   init: function() {
     this.appendDummyInput()
         .appendField('Class Fields');
@@ -152,7 +152,7 @@ Blockly.Blocks['struct_container'] = {
 };
 
 // Field item cho class
-Blockly.Blocks['struct_field_item'] = {
+Blockly.Blocks['class_field_item'] = {
   init: function() {
     this.appendDummyInput()
         .appendField('field')
@@ -176,7 +176,7 @@ Blockly.Blocks['struct_field_item'] = {
 };
 
 // Block tạo class
-Blockly.Blocks['struct_create'] = {
+Blockly.Blocks['class_create'] = {
   init: function() {
     this.appendDummyInput()
         .appendField('class')
@@ -198,7 +198,7 @@ Blockly.Blocks['struct_create'] = {
     this.setNextStatement(true, null);
 
     // Set up mutator
-    this.setMutator(new Blockly.icons.MutatorIcon(['struct_field_item'], this));
+    this.setMutator(new Blockly.icons.MutatorIcon(['class_field_item'], this));
   },
 
   saveExtraState: function() {
@@ -233,7 +233,7 @@ Blockly.Blocks['struct_create'] = {
   },
 
   decompose: function(workspace) {
-    const containerBlock = workspace.newBlock('struct_container');
+    const containerBlock = workspace.newBlock('class_container');
     containerBlock.initSvg();
     let connection = containerBlock.getInput('STACK').connection;
     
@@ -244,7 +244,7 @@ Blockly.Blocks['struct_create'] = {
       const defaultField = this.getField('DEFAULT_VALUE' + i);
       
       if (nameField && typeField) {
-        const fieldBlock = workspace.newBlock('struct_field_item');
+        const fieldBlock = workspace.newBlock('class_field_item');
         fieldBlock.initSvg();
         
         fieldBlock.setFieldValue(nameField.getValue(), 'FIELD_NAME');
@@ -321,16 +321,16 @@ Blockly.Blocks['struct_create'] = {
   }
 };
 
-// Generator cho struct_field_item
-pythonGenerator.forBlock['struct_field_item'] = function(block) {
+// Generator cho class_field_item
+pythonGenerator.forBlock['class_field_item'] = function(block) {
   const name = block.getFieldValue('FIELD_NAME');
   const type = block.getFieldValue('FIELD_TYPE');
   const defaultValue = block.getFieldValue('DEFAULT_VALUE');
   return defaultValue ? `    ${name}: ${type} = ${defaultValue}\n` : `    ${name}: ${type}\n`;
 };
 
-// Generator cho struct
-pythonGenerator.forBlock['struct_create'] = function(block) {
+// Generator cho class
+pythonGenerator.forBlock['class_create'] = function(block) {
   const className = block.getFieldValue('CLASS_NAME');
   let code = `class ${className}:\n`;
   
@@ -367,8 +367,8 @@ pythonGenerator.forBlock['class_instance'] = function(block) {
   return `${varName} = ${className}()\n`;
 };
 
-// Block để lấy giá trị field từ struct
-Blockly.Blocks['struct_get'] = {
+// Block để lấy giá trị field từ class
+Blockly.Blocks['class_get'] = {
   init: function() {
     this.appendDummyInput()
         .appendField('get')
@@ -382,14 +382,14 @@ Blockly.Blocks['struct_get'] = {
   }
 };
 
-pythonGenerator.forBlock['struct_get'] = function(block) {
+pythonGenerator.forBlock['class_get'] = function(block) {
   const variable = block.getFieldValue('VAR');
   const fieldName = block.getFieldValue('FIELD_NAME');
   return [`${variable}.${fieldName}`, pythonGenerator.ORDER_MEMBER];
 };
 
-// Block để set giá trị field cho struct
-Blockly.Blocks['struct_set'] = {
+// Block để set giá trị field cho class
+Blockly.Blocks['class_set'] = {
   init: function() {
     this.appendDummyInput()
         .appendField('set')
@@ -407,7 +407,7 @@ Blockly.Blocks['struct_set'] = {
   }
 };
 
-pythonGenerator.forBlock['struct_set'] = function(block) {
+pythonGenerator.forBlock['class_set'] = function(block) {
   const variable = block.getFieldValue('VAR');
   const fieldName = block.getFieldValue('FIELD_NAME');
   const value = pythonGenerator.valueToCode(block, 'VALUE', pythonGenerator.ORDER_NONE) || 'None';

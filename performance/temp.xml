@@ -1,0 +1,121 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="o%XR$l:(/+?z4gFzmV8p">text</variable>
+    <variable id="|E8u},Ai;4a,L]@B$=|X">time</variable>
+    <variable id="W-a*:`e!xo#K7`J+`-t.">start</variable>
+    <variable id="VB4u0C|!l@R{TIlik@?$">end</variable>
+  </variables>
+  <block type="procedures_defreturn" id="[MZ6/7.lxs8[7-[@t{K6" x="70" y="-30">
+    <mutation>
+      <arg name="time" varid="|E8u},Ai;4a,L]@B$=|X"></arg>
+    </mutation>
+    <field name="NAME">Runtime_of_sleep</field>
+    <comment pinned="false" h="80" w="160">Describe this function...</comment>
+    <statement name="STACK">
+      <block type="variables_set" id="{5d}oreZ#5BWG4C41J8e">
+        <field name="VAR" id="W-a*:`e!xo#K7`J+`-t.">start</field>
+        <value name="VALUE">
+          <block type="time_perf_counter" id="5EzoXFVEHnb+n!(w|9?n"></block>
+        </value>
+        <next>
+          <block type="time_sleep" id="g]a%NbIf$bV~GI,16S#z">
+            <value name="SECONDS">
+              <block type="variables_get" id=":+_ai=:ouw/4nVo-uivc">
+                <field name="VAR" id="|E8u},Ai;4a,L]@B$=|X">time</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="=c3Yl:RAmyMybCV1J3f(">
+                <field name="VAR" id="VB4u0C|!l@R{TIlik@?$">end</field>
+                <value name="VALUE">
+                  <block type="time_perf_counter" id=".1P@bPZ?9lgzAPo,8WXB"></block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="RETURN">
+      <block type="math_arithmetic" id="dSwTSA7AS;X*xkS,YW+G">
+        <field name="OP">MINUS</field>
+        <value name="A">
+          <block type="variables_get" id="@hxN;~]~?4#g~4fq-uvM">
+            <field name="VAR" id="VB4u0C|!l@R{TIlik@?$">end</field>
+          </block>
+        </value>
+        <value name="B">
+          <block type="variables_get" id="rgfgIOqL.B3Bx-0omkpm">
+            <field name="VAR" id="W-a*:`e!xo#K7`J+`-t.">start</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defreturn" id="(j$uftUG$U{M-c_$!^~q" x="70" y="130">
+    <mutation>
+      <arg name="text" varid="o%XR$l:(/+?z4gFzmV8p"></arg>
+    </mutation>
+    <field name="NAME">Runtime_of_print</field>
+    <comment pinned="false" h="80" w="160">Describe this function...</comment>
+    <statement name="STACK">
+      <block type="variables_set" id="__FR_J)3oq|w6-06dt(J">
+        <field name="VAR" id="W-a*:`e!xo#K7`J+`-t.">start</field>
+        <value name="VALUE">
+          <block type="time_perf_counter" id="%dSwx~!$:d(rUv.;=7jl"></block>
+        </value>
+        <next>
+          <block type="text_print" id="agx_/(Pzd.{Mq#b?EwTN">
+            <value name="TEXT">
+              <block type="variables_get" id="-UGX7eUQ#Feesm;60Na~">
+                <field name="VAR" id="o%XR$l:(/+?z4gFzmV8p">text</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="WUA~FZOLWeDr[6JT(ot.">
+                <field name="VAR" id="VB4u0C|!l@R{TIlik@?$">end</field>
+                <value name="VALUE">
+                  <block type="time_perf_counter" id="6r5odFKTUBUf%y|fRh_F"></block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="RETURN">
+      <block type="math_arithmetic" id="@ewC@iTCA.;+1thCodMr">
+        <field name="OP">MINUS</field>
+        <value name="A">
+          <block type="variables_get" id="iPVX|R%*y1TeWGC./GIX">
+            <field name="VAR" id="VB4u0C|!l@R{TIlik@?$">end</field>
+          </block>
+        </value>
+        <value name="B">
+          <block type="variables_get" id="-kB%:e4DYd3C]8!n],`=">
+            <field name="VAR" id="W-a*:`e!xo#K7`J+`-t.">start</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="program_try_except" id="q$PmMNzJPWWy;zG*w;C~" x="70" y="290">
+    <field name="EXCEPTION_TYPE0">Exception</field>
+    <statement name="TRY">
+      <block type="text_print" id="1rb(hysR9+-}iAMBWgrY">
+        <value name="TEXT">
+          <block type="procedures_callreturn" id="yXsmB[o;G!HL4J}poULp">
+            <mutation name="Runtime_of_print">
+              <arg name="text"></arg>
+            </mutation>
+            <value name="ARG0">
+              <block type="text" id="Dd~JHazlqqr@xrpR`AMk">
+                <field name="TEXT">pdpkdso</field>
+              </block>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+</xml>

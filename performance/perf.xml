@@ -1,0 +1,138 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="%?6R^F?^D9TWtGLJT%;l">led_id</variable>
+    <variable id="}+~hElt]1nmdtJA^Yuw4">state</variable>
+    <variable id="W-a*:`e!xo#K7`J+`-t.">start</variable>
+    <variable id="VB4u0C|!l@R{TIlik@?$">end</variable>
+  </variables>
+  <block type="procedures_defreturn" id="(j$uftUG$U{M-c_$!^~q" x="70" y="130">
+    <mutation>
+      <arg name="led_id" varid="%?6R^F?^D9TWtGLJT%;l"></arg>
+      <arg name="state" varid="}+~hElt]1nmdtJA^Yuw4"></arg>
+    </mutation>
+    <field name="NAME">Runtime_of_led_update</field>
+    <comment pinned="false" h="80" w="160">Describe this function...</comment>
+    <statement name="STACK">
+      <block type="variables_set" id="__FR_J)3oq|w6-06dt(J">
+        <field name="VAR" id="W-a*:`e!xo#K7`J+`-t.">start</field>
+        <value name="VALUE">
+          <block type="time_perf_counter" id="%dSwx~!$:d(rUv.;=7jl"></block>
+        </value>
+        <next>
+          <block type="LEDs_update_by_number" id="FN)x^Jb9rO6^]OMX=CO=">
+            <value name="LED_NUMBER">
+              <block type="variables_get" id="ayD:ZmXVt]DHG7yJG-[}">
+                <field name="VAR" id="%?6R^F?^D9TWtGLJT%;l">led_id</field>
+              </block>
+            </value>
+            <value name="state">
+              <block type="variables_get" id="V.m/7Tga,M+s9wcg:x4u">
+                <field name="VAR" id="}+~hElt]1nmdtJA^Yuw4">state</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="WUA~FZOLWeDr[6JT(ot.">
+                <field name="VAR" id="VB4u0C|!l@R{TIlik@?$">end</field>
+                <value name="VALUE">
+                  <block type="time_perf_counter" id="6r5odFKTUBUf%y|fRh_F"></block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="RETURN">
+      <block type="math_arithmetic" id="@ewC@iTCA.;+1thCodMr">
+        <field name="OP">MINUS</field>
+        <value name="A">
+          <block type="variables_get" id="iPVX|R%*y1TeWGC./GIX">
+            <field name="VAR" id="VB4u0C|!l@R{TIlik@?$">end</field>
+          </block>
+        </value>
+        <value name="B">
+          <block type="variables_get" id="-kB%:e4DYd3C]8!n],`=">
+            <field name="VAR" id="W-a*:`e!xo#K7`J+`-t.">start</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defreturn" id="|wP[RWrB[9e,iERQ;zlO" x="70" y="290">
+    <field name="NAME">Runtime_of_led_clear</field>
+    <comment pinned="false" h="80" w="160">Describe this function...</comment>
+    <statement name="STACK">
+      <block type="variables_set" id="-GLtotB?t$%4!-#A-C5H">
+        <field name="VAR" id="W-a*:`e!xo#K7`J+`-t.">start</field>
+        <value name="VALUE">
+          <block type="time_perf_counter" id=",O@DJ1j]JI$0{ad]={i8"></block>
+        </value>
+        <next>
+          <block type="LEDs_clear" id="FY$p/$Qb;flq~^m1J`4v">
+            <next>
+              <block type="variables_set" id="rB|Th*UX2IennZIalS-{">
+                <field name="VAR" id="VB4u0C|!l@R{TIlik@?$">end</field>
+                <value name="VALUE">
+                  <block type="time_perf_counter" id="rU=9t./x81R1^7ONwko2"></block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="RETURN">
+      <block type="math_arithmetic" id="w2|vYfD^PbGK@t)A~kci">
+        <field name="OP">MINUS</field>
+        <value name="A">
+          <block type="variables_get" id="f%M8VtV7t*Ff30r%!RPD">
+            <field name="VAR" id="VB4u0C|!l@R{TIlik@?$">end</field>
+          </block>
+        </value>
+        <value name="B">
+          <block type="variables_get" id="yVPCh$P[J#rP;wW`pNEO">
+            <field name="VAR" id="W-a*:`e!xo#K7`J+`-t.">start</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+  <block type="procedures_defreturn" id="TpB4b3k:DHp3jk3UB*!w" x="70" y="450">
+    <mutation>
+      <arg name="state" varid="}+~hElt]1nmdtJA^Yuw4"></arg>
+    </mutation>
+    <field name="NAME">Runtime_of_7Seg_state</field>
+    <comment pinned="false" h="80" w="160">Describe this function...</comment>
+    <statement name="STACK">
+      <block type="variables_set" id="_kQN`shODrOzv_(PcSb%">
+        <field name="VAR" id="W-a*:`e!xo#K7`J+`-t.">start</field>
+        <value name="VALUE">
+          <block type="time_perf_counter" id="EYb[9MM%5jSjSed?+9`V"></block>
+        </value>
+        <next>
+          <block type="variables_set" id="r:gd{vfTfKZ1]~Mi%eR[">
+            <field name="VAR" id="VB4u0C|!l@R{TIlik@?$">end</field>
+            <value name="VALUE">
+              <block type="time_perf_counter" id="qC]Rdz/|CxPLch*t*XCO"></block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="RETURN">
+      <block type="math_arithmetic" id="-=zg6)rjj!a_8UkeupYB">
+        <field name="OP">MINUS</field>
+        <value name="A">
+          <block type="variables_get" id="PKEFZFaIEafSQIw#}0jb">
+            <field name="VAR" id="VB4u0C|!l@R{TIlik@?$">end</field>
+          </block>
+        </value>
+        <value name="B">
+          <block type="variables_get" id="GhR[z0KLg[)=V$wOMH@M">
+            <field name="VAR" id="W-a*:`e!xo#K7`J+`-t.">start</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+</xml>
