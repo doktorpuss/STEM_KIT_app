@@ -9,7 +9,7 @@ import 'prismjs/components/prism-python';
 import 'prismjs/themes/prism-tomorrow.css';
 import './App.css';
 import './blocks/time_blocks';
-import './blocks/custom_block';
+import './blocks/custom_math';
 import './blocks/LED_blocks';
 import './blocks/ADC_blocks';
 import './blocks/LCD_blocks';
@@ -63,6 +63,8 @@ const INITIAL_TOOLBOX_JSON = {
         { "kind": "block", "type": "math_constant" },
         { "kind": "block", "type": "math_round" },
         { "kind": "block", "type": "math_modulo" },
+        { "kind": "block", "type": "convert_int" },
+        { "kind": "block", "type": "convert_float" }
       ]
     }, 
     {

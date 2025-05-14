@@ -9,6 +9,7 @@ const timeBlocks = {
       this.appendValueInput('SECONDS')
           .setCheck('Number')
           .appendField('sleep for')
+      this.appendDummyInput()
           .appendField('seconds');
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
