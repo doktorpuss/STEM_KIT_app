@@ -201,6 +201,7 @@ def run_flask():
     app.run(port=5000)
 
 if __name__ == '__main__':
+    start_time = time.perf_counter()
     # Start Flask server in a separate thread
     flask_thread = threading.Thread(target=run_flask, daemon=True)
     flask_thread.start()
@@ -209,4 +210,6 @@ if __name__ == '__main__':
     qt_app = QApplication(sys.argv)
     window = BlocklyIDE()
     window.show()
+    end_time = time.perf_counter()
+    print(f"Flask server started in {end_time - start_time} seconds")
     sys.exit(qt_app.exec()) 

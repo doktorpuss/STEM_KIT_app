@@ -44,10 +44,10 @@ pythonGenerator.forBlock['Potentiometer_read'] = function(block) {
   pythonGenerator.definitions_['import_ADC'] = 'import ADC';
   
   const Pot_ID = block.getFieldValue('Pot_ID') || '0';
-  return [`ADC.read(${Pot_ID})\n`, pythonGenerator.ORDER_FUNCTION_CALL];
+  return [`ADC.read(${Pot_ID})`, pythonGenerator.ORDER_FUNCTION_CALL];
 };
 pythonGenerator.forBlock['Smoke_read'] = function(block) {
   // Add import ADC to definitions
   pythonGenerator.definitions_['import_ADC'] = 'import ADC';
-  return [`ADC.read(3)\n`, pythonGenerator.ORDER_FUNCTION_CALL];
+  return [`ADC.read(3)`, pythonGenerator.ORDER_FUNCTION_CALL];
 };
