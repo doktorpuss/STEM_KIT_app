@@ -3,3 +3,4 @@ test.py
 frontend/node_modules
 frontend/build
 frontend/dist
+temp_code.py
