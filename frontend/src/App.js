@@ -344,7 +344,7 @@ function App() {
     try {
       setIsRunning(true);
       
-      await fetch('http://localhost:5000/run', {
+      await fetch('/run', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -367,7 +367,7 @@ function App() {
       const xml = Blockly.Xml.workspaceToDom(workspace);
       const xmlText = Blockly.Xml.domToPrettyText(xml);
       
-      const response = await fetch('http://localhost:5000/save_blocks', {
+      const response = await fetch('/save_blocks', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

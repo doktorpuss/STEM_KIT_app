@@ -30,7 +30,7 @@
                           <block type="controls_if" id="%)P{ITkVPI38Pu|Gl.DG">
                             <value name="IF0">
                               <block type="opencv_waitKey" id="4T[?o7no.a~Rpxh)Wfy0">
-                                <field name="DELAY">0</field>
+                                <field name="DELAY">1</field>
                               </block>
                             </value>
                             <statement name="DO0">

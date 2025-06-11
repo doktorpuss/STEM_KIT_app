@@ -2,6 +2,7 @@
   <variables>
     <variable id="8a}7%Zr+bFGuI0!q@m?n">value</variable>
     <variable id="u@Ou;/A#4,nPi|^wOIi%">angle</variable>
+    <variable id="}mGdbV+z}/K)?:MhSZ}s">img</variable>
   </variables>
   <block type="procedures_defreturn" id="?JlC})ml3wX)w_bZ7R6{" x="10" y="-10">
     <mutation statements="false">
@@ -35,61 +36,109 @@
       </block>
     </value>
   </block>
-  <block type="program_try_except" id="Fx;smp5^+Zh*Rr7J9%qG" x="10" y="70">
+  <block type="program_try_except" id="Fx;smp5^+Zh*Rr7J9%qG" x="73" y="163">
     <field name="EXCEPTION_TYPE0">KeyboardInterrupt</field>
     <statement name="TRY">
       <block type="SERVO" id="!p4uSvtI2,4|XFiGaPRN">
         <field name="SERVO_STATE">start</field>
         <next>
-          <block type="custom_while" id="1`CYKQL5W]LO?%8F4QUK">
-            <value name="CONDITION">
-              <block type="logic_boolean" id="lF.knlkdYy=FhKY)7U{d">
-                <field name="BOOL">TRUE</field>
-              </block>
-            </value>
-            <statement name="DO">
-              <block type="variables_set" id="`a@X)lFLJUPsrE^3C]!o">
-                <field name="VAR" id="8a}7%Zr+bFGuI0!q@m?n">value</field>
-                <value name="VALUE">
-                  <block type="Potentiometer_read" id="^]YE![ek/oULES_QN4DK">
-                    <field name="Pot_ID">0</field>
+          <block type="camera_start" id="e$KM+W;RrV1ZWK/s|`CN">
+            <next>
+              <block type="custom_while" id="1`CYKQL5W]LO?%8F4QUK">
+                <value name="CONDITION">
+                  <block type="logic_boolean" id="lF.knlkdYy=FhKY)7U{d">
+                    <field name="BOOL">TRUE</field>
                   </block>
                 </value>
-                <next>
-                  <block type="variables_set" id="juqj/g^XSINedSy7@oN:">
-                    <field name="VAR" id="u@Ou;/A#4,nPi|^wOIi%">angle</field>
+                <statement name="DO">
+                  <block type="variables_set" id="`a@X)lFLJUPsrE^3C]!o">
+                    <field name="VAR" id="8a}7%Zr+bFGuI0!q@m?n">value</field>
                     <value name="VALUE">
-                      <block type="procedures_callreturn" id="^-ZTkbi+FA{^4mom:w~%">
-                        <mutation name="unify">
-                          <arg name="value"></arg>
-                        </mutation>
-                        <value name="ARG0">
-                          <block type="variables_get" id="e5/9Y8Q]HqJ8}uYnUT{M">
-                            <field name="VAR" id="8a}7%Zr+bFGuI0!q@m?n">value</field>
-                          </block>
-                        </value>
+                      <block type="Potentiometer_read" id="^]YE![ek/oULES_QN4DK">
+                        <field name="Pot_ID">0</field>
                       </block>
                     </value>
                     <next>
-                      <block type="SERVO_angle" id="atg?HUYoT3yjXJ_tq[XT">
-                        <value name="ANGLE">
-                          <block type="variables_get" id="73n4OQE-GzJHU1t~F!Z8">
-                            <field name="VAR" id="u@Ou;/A#4,nPi|^wOIi%">angle</field>
+                      <block type="variables_set" id="juqj/g^XSINedSy7@oN:">
+                        <field name="VAR" id="u@Ou;/A#4,nPi|^wOIi%">angle</field>
+                        <value name="VALUE">
+                          <block type="procedures_callreturn" id="^-ZTkbi+FA{^4mom:w~%">
+                            <mutation name="unify">
+                              <arg name="value"></arg>
+                            </mutation>
+                            <value name="ARG0">
+                              <block type="variables_get" id="e5/9Y8Q]HqJ8}uYnUT{M">
+                                <field name="VAR" id="8a}7%Zr+bFGuI0!q@m?n">value</field>
+                              </block>
+                            </value>
                           </block>
                         </value>
+                        <next>
+                          <block type="SERVO_angle" id="atg?HUYoT3yjXJ_tq[XT">
+                            <value name="ANGLE">
+                              <block type="variables_get" id="73n4OQE-GzJHU1t~F!Z8">
+                                <field name="VAR" id="u@Ou;/A#4,nPi|^wOIi%">angle</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="variables_set" id="4Jn+uMR~{fJ9a8K-cE^X">
+                                <field name="VAR" id="}mGdbV+z}/K)?:MhSZ}s">img</field>
+                                <value name="VALUE">
+                                  <block type="camera_capture" id="*C]~:.wS$A4ZrrK9X/+$"></block>
+                                </value>
+                                <next>
+                                  <block type="variables_set" id="Ch@*]8DIS/!p7Y^ZW@#H">
+                                    <field name="VAR" id="}mGdbV+z}/K)?:MhSZ}s">img</field>
+                                    <value name="VALUE">
+                                      <block type="opencv_rotate" id="~x$hwQ`Z=iVui-tr#|fm">
+                                        <field name="IMAGE" id="}mGdbV+z}/K)?:MhSZ}s">img</field>
+                                        <field name="ANGLE">cv2.ROTATE_180</field>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="opencv_imshow" id="~hiJ(XCs~811f9^BV}e8">
+                                        <field name="IMAGE" id="}mGdbV+z}/K)?:MhSZ}s">img</field>
+                                        <next>
+                                          <block type="controls_if" id="%bS1x+Y6UWmYNAQi2h!t">
+                                            <value name="IF0">
+                                              <block type="opencv_waitKey" id="jCHVFQ#Q1dX743zWE)3F">
+                                                <field name="DELAY">1</field>
+                                              </block>
+                                            </value>
+                                            <statement name="DO0">
+                                              <block type="loop_break" id="A8S!cjPt91P^CYX7c}kx"></block>
+                                            </statement>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
                       </block>
                     </next>
                   </block>
-                </next>
+                </statement>
               </block>
-            </statement>
+            </next>
           </block>
         </next>
       </block>
     </statement>
-    <statement name="EXCEPT0">
-      <block type="SERVO" id="fSDJ6k!1G@{LxCqIMSN.">
-        <field name="SERVO_STATE">stop</field>
+    <statement name="FINALLY">
+      <block type="opencv_destroyAllWindows" id="CnZ!kUZK2b#@z06X4X1-">
+        <next>
+          <block type="camera_stop" id=",UjUcjRW[~9RT^Zb(R0?">
+            <next>
+              <block type="SERVO" id="fSDJ6k!1G@{LxCqIMSN.">
+                <field name="SERVO_STATE">stop</field>
+              </block>
+            </next>
+          </block>
+        </next>
       </block>
     </statement>
   </block>

@@ -1,38 +1,95 @@
 <xml xmlns="https://developers.google.com/blockly/xml">
   <variables>
-    <variable id="6n/9go+xEEivx;ov$]F=">i</variable>
+    <variable id="Az@+t_#_+;03!}t5`q`W">count</variable>
   </variables>
-  <block type="controls_for" id="f]@bGr0K3p%k5JQ5(e(^" x="50" y="130">
-    <field name="VAR" id="6n/9go+xEEivx;ov$]F=">i</field>
-    <value name="FROM">
-      <block type="math_number" id="YVjQ@,7w7)zg=iVXCw]/">
-        <field name="NUM">0</field>
-      </block>
-    </value>
-    <value name="TO">
-      <block type="math_number" id="K!s8knTjeV{2Bijf*@@s">
-        <field name="NUM">10</field>
-      </block>
-    </value>
-    <value name="BY">
-      <block type="math_number" id="b,)uKtpJo5t(s/(Q$mgq">
-        <field name="NUM">1</field>
-      </block>
-    </value>
-    <statement name="DO">
-      <block type="text_print" id="Y@O!E{$pT{TnS/shfVa6">
-        <value name="TEXT">
-          <block type="variables_get" id="RuF,mCCdi]SofOAv?S2o">
-            <field name="VAR" id="6n/9go+xEEivx;ov$]F=">i</field>
+  <block type="program_try_except" id="-K?c_Wk8TPJgrf=32z{%" x="10" y="90">
+    <field name="EXCEPTION_TYPE0">KeyboardInterrupt</field>
+    <statement name="TRY">
+      <block type="variables_set" id="|g0.%29;Ii;Bi?naxS#3">
+        <field name="VAR" id="Az@+t_#_+;03!}t5`q`W">count</field>
+        <value name="VALUE">
+          <block type="math_number" id="gf^78#H?r@}|9w7EBL-s">
+            <field name="NUM">0</field>
           </block>
         </value>
         <next>
-          <block type="time_sleep" id="_Rhzu%EN{*.18[[Qx92k">
-            <value name="SECONDS">
-              <block type="math_number" id="Qr~$7056raA/bYe5MG|f">
-                <field name="NUM">1</field>
+          <block type="custom_while" id="FE?D#~e-+xQY$b{$pH{b">
+            <statement name="DO">
+              <block type="controls_if" id="f=dtZOi7]|3ta+eekg[G">
+                <value name="IF0">
+                  <block type="logic_compare" id="IGD#Y+n!ab4x%uTJ*rV$">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="BUTTON_read" id="wK]TInb}YlB6]-3tyAy3">
+                        <field name="BUTTON">1</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="logic_boolean" id=",o6kE@tdC-cdUy.m215r">
+                        <field name="BOOL">TRUE</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="variables_set" id="vXHZRNBj=T9)1!j(8ec+">
+                    <field name="VAR" id="Az@+t_#_+;03!}t5`q`W">count</field>
+                    <value name="VALUE">
+                      <block type="math_arithmetic" id="|YD(B(MAfU){rjJdukI0">
+                        <field name="OP">ADD</field>
+                        <value name="A">
+                          <block type="variables_get" id="uYf:dgJ)CIx2iJdc8/Bn">
+                            <field name="VAR" id="Az@+t_#_+;03!}t5`q`W">count</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="(D.;.6A]NU^(#A~q#u,J">
+                            <field name="NUM">1</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+                <next>
+                  <block type="custom_while" id="/-yz=viRX8`l8xUE56(2">
+                    <value name="CONDITION">
+                      <block type="logic_compare" id="7:u@:bml@}I~j7SBKUDG">
+                        <field name="OP">EQ</field>
+                        <value name="A">
+                          <block type="BUTTON_read" id="E~;b,uQK*ciS-C(R*l$m">
+                            <field name="BUTTON">1</field>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="logic_boolean" id="u78qYw+X@WZvEw=?gF*N">
+                            <field name="BOOL">TRUE</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="text_print" id="fD1w;(f+4[)2?[oW,Z;7">
+                        <value name="TEXT">
+                          <block type="variables_get" id="S?B|VoL`wH|4,-xX:Lo%">
+                            <field name="VAR" id="Az@+t_#_+;03!}t5`q`W">count</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="time_sleep" id="[@8]|iWg{IxKD:w)L#24">
+                            <value name="SECONDS">
+                              <block type="math_number" id="ngX2#W$|z*?7Vt9w{?@J">
+                                <field name="NUM">0.01</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
               </block>
-            </value>
+            </statement>
           </block>
         </next>
       </block>

@@ -2,7 +2,7 @@
   <variables>
     <variable id="8A]/en:XYDo~M~_O+mAG">smoke</variable>
   </variables>
-  <block type="program_try_except" id="9w!KZ74,amFU]V@I);w4" x="50" y="50">
+  <block type="program_try_except" id="9w!KZ74,amFU]V@I);w4" x="62" y="86">
     <field name="EXCEPTION_TYPE0">KeyboardInterrupt</field>
     <statement name="TRY">
       <block type="text_print" id="JcO({:{:|Y?L,Xw:?|bd">
@@ -32,19 +32,29 @@
                         </value>
                         <value name="B">
                           <block type="math_number" id="v%733Ysl/F?IYDdtZZ`k">
-                            <field name="NUM">700</field>
+                            <field name="NUM">1500</field>
                           </block>
                         </value>
                       </block>
                     </value>
                     <statement name="DO0">
-                      <block type="BUZZER" id="wys2VIcEwmNe!_2|I$L@">
-                        <field name="BUZZER_STATE">on</field>
+                      <block type="FAN" id="#UEtD)?Ja]*j!J$W6HAw">
+                        <field name="FAN_STATE">on</field>
+                        <next>
+                          <block type="BUZZER" id="wys2VIcEwmNe!_2|I$L@">
+                            <field name="BUZZER_STATE">on</field>
+                          </block>
+                        </next>
                       </block>
                     </statement>
                     <statement name="ELSE">
-                      <block type="BUZZER" id="ixDv*/MkszjONcqyS?}M">
-                        <field name="BUZZER_STATE">off</field>
+                      <block type="FAN" id="D7p~b}cHCTKwy*J-3P{}">
+                        <field name="FAN_STATE">off</field>
+                        <next>
+                          <block type="BUZZER" id="ixDv*/MkszjONcqyS?}M">
+                            <field name="BUZZER_STATE">off</field>
+                          </block>
+                        </next>
                       </block>
                     </statement>
                     <next>

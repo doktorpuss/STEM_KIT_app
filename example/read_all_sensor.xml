@@ -3,6 +3,7 @@
     <variable id="})=S*h@,9Llu?|Hy=Bz{">Smoke</variable>
     <variable id="afpPn^mZz={(2p`Jth:M">Temp</variable>
     <variable id="7*DpIC_p`6z[4AbG,PPI">Humid</variable>
+    <variable id="w4Rb5PwZ:q}bWmg8l$-x">dist</variable>
   </variables>
   <block type="program_try_except" id="8TaKi/7O[r-rK3#l=yRE" x="310" y="270">
     <field name="EXCEPTION_TYPE0">KeyboardInterrupt</field>
@@ -32,42 +33,69 @@
                       <block type="DHT_humidity" id="R)_7iZdSpYG|WamZ(y~["></block>
                     </value>
                     <next>
-                      <block type="text_print" id="{]mX%TiP~e/fo.:gu+7P">
-                        <value name="TEXT">
-                          <block type="text_join" id="lA*E@nIFvjoxPm?YUZzr">
-                            <mutation items="6"></mutation>
-                            <value name="ADD0">
-                              <block type="text" id="Aj@]In!qv1JPf]=C#i7Q">
-                                <field name="TEXT">    TEMP: </field>
-                              </block>
-                            </value>
-                            <value name="ADD1">
-                              <block type="variables_get" id="#o|-;V-YmkqwNcb@p_p$">
-                                <field name="VAR" id="afpPn^mZz={(2p`Jth:M">Temp</field>
-                              </block>
-                            </value>
-                            <value name="ADD2">
-                              <block type="text" id="M-NxKt$i?i7g(IhKv;+j">
-                                <field name="TEXT">    HUMID: </field>
-                              </block>
-                            </value>
-                            <value name="ADD3">
-                              <block type="variables_get" id="DGoM4]T?pq;G`Wsgrd(n">
-                                <field name="VAR" id="7*DpIC_p`6z[4AbG,PPI">Humid</field>
-                              </block>
-                            </value>
-                            <value name="ADD4">
-                              <block type="text" id="h@a;YY|JZT4O)iAPU8OF">
-                                <field name="TEXT">    SMOKE: </field>
-                              </block>
-                            </value>
-                            <value name="ADD5">
-                              <block type="variables_get" id="],jh,eVq[aS}SaR]h5iS">
-                                <field name="VAR" id="})=S*h@,9Llu?|Hy=Bz{">Smoke</field>
-                              </block>
-                            </value>
-                          </block>
+                      <block type="variables_set" id=".pZr!@|DdkV2T%M{$r]#">
+                        <field name="VAR" id="w4Rb5PwZ:q}bWmg8l$-x">dist</field>
+                        <value name="VALUE">
+                          <block type="SONAR_distance" id=";HmxT%b/Opz@_,or6:Ku"></block>
                         </value>
+                        <next>
+                          <block type="text_print" id="{]mX%TiP~e/fo.:gu+7P">
+                            <value name="TEXT">
+                              <block type="text_join" id="lA*E@nIFvjoxPm?YUZzr">
+                                <mutation items="8"></mutation>
+                                <value name="ADD0">
+                                  <block type="text" id="c[#;CJ%wT[fYPm-02ACX">
+                                    <field name="TEXT">DIST: </field>
+                                  </block>
+                                </value>
+                                <value name="ADD1">
+                                  <block type="variables_get" id="Ar^F2(C-UnI[){5W=7.g">
+                                    <field name="VAR" id="w4Rb5PwZ:q}bWmg8l$-x">dist</field>
+                                  </block>
+                                </value>
+                                <value name="ADD2">
+                                  <block type="text" id="Aj@]In!qv1JPf]=C#i7Q">
+                                    <field name="TEXT">    TEMP: </field>
+                                  </block>
+                                </value>
+                                <value name="ADD3">
+                                  <block type="variables_get" id="#o|-;V-YmkqwNcb@p_p$">
+                                    <field name="VAR" id="afpPn^mZz={(2p`Jth:M">Temp</field>
+                                  </block>
+                                </value>
+                                <value name="ADD4">
+                                  <block type="text" id="M-NxKt$i?i7g(IhKv;+j">
+                                    <field name="TEXT">    HUMID: </field>
+                                  </block>
+                                </value>
+                                <value name="ADD5">
+                                  <block type="variables_get" id="DGoM4]T?pq;G`Wsgrd(n">
+                                    <field name="VAR" id="7*DpIC_p`6z[4AbG,PPI">Humid</field>
+                                  </block>
+                                </value>
+                                <value name="ADD6">
+                                  <block type="text" id="h@a;YY|JZT4O)iAPU8OF">
+                                    <field name="TEXT">    SMOKE: </field>
+                                  </block>
+                                </value>
+                                <value name="ADD7">
+                                  <block type="variables_get" id="],jh,eVq[aS}SaR]h5iS">
+                                    <field name="VAR" id="})=S*h@,9Llu?|Hy=Bz{">Smoke</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="time_sleep" id="`.qXlXp37U2tZa#wT=]E">
+                                <value name="SECONDS">
+                                  <block type="math_number" id="$RkfjY9sqVQ`{%f}U8Vj">
+                                    <field name="NUM">1</field>
+                                  </block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
                       </block>
                     </next>
                   </block>
