@@ -361,30 +361,30 @@ function App() {
     }
   };
 
-  const handleSaveBlocks = async () => {
+  // Lưu toàn bộ workspace ra file XML trên máy khách
+  const handleSaveBlocks = () => {
     try {
       const workspace = Blockly.getMainWorkspace();
-      const xml = Blockly.Xml.workspaceToDom(workspace);
+      const xml     = Blockly.Xml.workspaceToDom(workspace);
       const xmlText = Blockly.Xml.domToPrettyText(xml);
-      
-      const response = await fetch('/save_blocks', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          blocks: xmlText
-        }),
-      });
 
-      if (response.ok) {
-        const result = await response.text();
-        console.log(result);
-        alert('Blocks saved successfully!');
-      } else {
-        console.error('Error saving blocks');
-        alert('Error saving blocks. Please try again.');
-      }
+      // Tạo Blob và link “tạm” để trigger download
+      const blob = new Blob([xmlText], { type: 'text/xml' });
+      const url  = URL.createObjectURL(blob);
+
+      const a = document.createElement('a');
+      a.href        = url;
+      // Đặt tên file kèm timestamp để tránh ghi đè
+      a.download    = `blockly_workspace_${new Date()
+                        .toISOString()
+                        .replace(/[:.]/g, '-')}.xml`;
+
+      document.body.appendChild(a);
+      a.click();           // Bắt đầu tải
+      a.remove();          // Dọn dẹp
+      URL.revokeObjectURL(url);
+
+      alert('Blocks saved to file successfully!');
     } catch (error) {
       console.error('Error saving blocks:', error);
       alert('Error saving blocks. Please try again.');
