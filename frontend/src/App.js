@@ -356,8 +356,24 @@ function App() {
       
     } catch (error) {
       console.error('Error running code:', error);
-    } finally {
-      setIsRunning(false);
+    } 
+  };
+
+  const handleStopCode = async () => {
+    try {
+      setIsRunning(false); // Cập nhật trước để UI phản hồi nhanh
+
+      await fetch('/stop', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      });
+
+      // alert('Code execution stopped.');
+    } catch (error) {
+      console.error('Error stopping code:', error);
+      alert('Failed to stop code execution.');
     }
   };
 
@@ -368,23 +384,24 @@ function App() {
       const xml     = Blockly.Xml.workspaceToDom(workspace);
       const xmlText = Blockly.Xml.domToPrettyText(xml);
 
+      // 👉 Thêm dòng comment an toàn vào đầu file
+      xmlText = '<!-- Blockly generated XML file. Safe for download. -->\n' + xmlText;
+
       // Tạo Blob và link “tạm” để trigger download
       const blob = new Blob([xmlText], { type: 'text/xml' });
       const url  = URL.createObjectURL(blob);
 
       const a = document.createElement('a');
       a.href        = url;
-      // Đặt tên file kèm timestamp để tránh ghi đè
-      a.download    = `blockly_workspace_${new Date()
-                        .toISOString()
-                        .replace(/[:.]/g, '-')}.xml`;
+      
+      a.download    = `STEM_KIT_program.xml`;
 
       document.body.appendChild(a);
       a.click();           // Bắt đầu tải
       a.remove();          // Dọn dẹp
       URL.revokeObjectURL(url);
 
-      alert('Blocks saved to file successfully!');
+      // alert('Blocks saved to file successfully!');
     } catch (error) {
       console.error('Error saving blocks:', error);
       alert('Error saving blocks. Please try again.');
@@ -406,7 +423,7 @@ function App() {
           // Reset file input so the same file can be loaded again
           event.target.value = '';
           
-          alert('Blocks loaded successfully!');
+          // alert('Blocks loaded successfully!');
         } catch (error) {
           console.error('Error loading blocks:', error);
           alert('Error loading blocks. Please try again.');
@@ -477,13 +494,21 @@ function App() {
           <div className="code-container">
             <div className="code-header">
               <h2>Generated Python Code</h2>
-              <button 
-                onClick={handleRunCode} 
-                disabled={isRunning}
-                className="run-button"
-              >
-                {isRunning ? 'Running...' : 'Run in Terminal'}
-              </button>
+                {isRunning ? (
+                  <button
+                    onClick={handleStopCode}
+                    className="stop-button"
+                  >
+                    Stop
+                  </button>
+                ) : (
+                  <button
+                    onClick={handleRunCode}
+                    className="run-button"
+                  >
+                    Run in Terminal
+                  </button>
+                )}
             </div>
             <Editor
               value={pythonCode || '# Generated Python code will appear here'}

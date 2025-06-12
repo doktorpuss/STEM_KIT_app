@@ -34,7 +34,7 @@ A desktop application that allows you to create Python programs using a visual b
 
 3. Install Python dependencies:
 ```bash
-pip install flask flask-cors PyQt6 PyQt6-WebEngine
+pip install flask flask-cors PyQt6 PyQt6-WebEngine psutil
 ```
 
 4. Clone or download the source code:

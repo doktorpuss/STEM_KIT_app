@@ -14,6 +14,8 @@ from datetime import datetime
 import queue
 import time
 import json
+import signal
+import psutil
 
 # Flask app for serving the React frontend
 app = Flask(__name__, static_folder='frontend/build')
@@ -21,6 +23,9 @@ CORS(app)
 
 # Queue to store output messages
 output_queue = queue.Queue()
+
+# Global variable store terminal process
+terminal_pid = None
 
 class FileDialogHandler(QObject):
     save_requested = pyqtSignal(str)
@@ -83,48 +88,89 @@ def serve(path):
     return send_from_directory(app.static_folder, 'index.html')
 
 def run_python_code(code):
+    global terminal_pid
+
     if sys.platform == 'win32':
-        temp_file = "temp_code.py"
-    elif sys.platform == 'linux':
+        temp_file = "./temp_code.py"
+    else:  # Linux
         temp_file = "../library/temp_code.py"
+
     try:
-        # Write the code to a fixed temp file
         with open(temp_file, 'w') as f:
             f.write(code)
-        
-        # Open a new terminal window and run the code
-        if sys.platform == 'win32':
-            process = subprocess.Popen(['start', 'cmd', '/k', f'python {temp_file} && del {temp_file}'], shell=True)
-        else:
-            process = subprocess.Popen(['lxterminal', '-e', f'bash -c "sudo python3 {temp_file}; rm {temp_file}; exec bash"'])
 
-        
+        if sys.platform == 'win32':
+            # Lấy PID các cmd.exe hiện có trước
+            before_pids = set(p.pid for p in psutil.process_iter(['name']) if p.info['name'] == 'cmd.exe')
+
+            subprocess.Popen(
+                f'start "" cmd /k "python \"{temp_file}\" & del \"{temp_file}\""',
+                shell=True
+            )
+
+            time.sleep(1)  # Đợi cmd mở
+
+            after_pids = set(p.pid for p in psutil.process_iter(['name']) if p.info['name'] == 'cmd.exe')
+            new_pids = after_pids - before_pids
+            terminal_pid = list(new_pids)[0] if new_pids else None
+
+        else:  # Linux
+            before_pids = set(p.pid for p in psutil.process_iter(['name']) if 'lxterminal' in p.info['name'])
+
+            subprocess.Popen([
+                'lxterminal', '-e',
+                f'bash -c "python3 {temp_file}; rm {temp_file}; exec bash"'
+            ])
+
+            time.sleep(1)
+
+            after_pids = set(p.pid for p in psutil.process_iter(['name']) if 'lxterminal' in p.info['name'])
+            new_pids = after_pids - before_pids
+            terminal_pid = list(new_pids)[0] if new_pids else None
+
         return "", ""
-            
+
     except Exception as e:
         if os.path.exists(temp_file):
             os.remove(temp_file)
         return "", str(e)
 
+
 @app.route('/run', methods=['POST'])
 def run_code():
     data = request.get_json()
     code = data.get('code', '')
-    
-    # Start a new thread to run the code
+
     def run_code_thread():
         stdout, stderr = run_python_code(code)
         if stderr:
             print(f"Error: {stderr}")
-    
+
     thread = threading.Thread(target=run_code_thread)
     thread.start()
-    
-    # Return immediately with a success message
+
     return jsonify({
         'status': 'success',
         'message': 'Code execution started'
     })
+
+
+@app.route('/stop', methods=['POST'])
+def stop_code():
+    global terminal_pid
+
+    if terminal_pid:
+        try:
+            p = psutil.Process(terminal_pid)
+            for child in p.children(recursive=True):
+                child.kill()
+            p.kill()
+            terminal_pid = None
+            return jsonify({'status': 'success', 'message': 'Terminal process stopped'})
+        except Exception as e:
+            return jsonify({'status': 'error', 'message': str(e)})
+    else:
+        return jsonify({'status': 'error', 'message': 'No active terminal process'})
 
 @app.route('/get_output', methods=['GET'])
 def get_output():
