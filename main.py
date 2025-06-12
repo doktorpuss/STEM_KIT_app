@@ -96,7 +96,7 @@ def run_python_code(code):
         if sys.platform == 'win32':
             process = subprocess.Popen(['start', 'cmd', '/k', f'python {temp_file} && del {temp_file}'], shell=True)
         else:
-            subprocess.Popen(['lxterminal', '-e', f'bash -c "sudo python3 {temp_file}; rm {temp_file}; exec bash"'])
+            process = subprocess.Popen(['lxterminal', '-e', f'bash -c "sudo python3 {temp_file}; rm {temp_file}; exec bash"'])
 
         
         return "", ""
@@ -203,13 +203,14 @@ def run_flask():
 if __name__ == '__main__':
     start_time = time.perf_counter()
     # Start Flask server in a separate thread
-    flask_thread = threading.Thread(target=run_flask, daemon=True)
-    flask_thread.start()
+    # flask_thread = threading.Thread(target=run_flask, daemon=True)
+    # flask_thread.start()
+    run_flask()
     
     # Start PyQt application
-    qt_app = QApplication(sys.argv)
-    window = BlocklyIDE()
-    window.show()
+    # qt_app = QApplication(sys.argv)
+    # window = BlocklyIDE()
+    # window.show()
     end_time = time.perf_counter()
     print(f"Flask server started in {end_time - start_time} seconds")
-    sys.exit(qt_app.exec()) 
+    # sys.exit(qt_app.exec()) 
