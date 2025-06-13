@@ -384,7 +384,7 @@ function App() {
       const xml     = Blockly.Xml.workspaceToDom(workspace);
       const xmlText = Blockly.Xml.domToPrettyText(xml);
 
-      // 👉 Thêm dòng comment an toàn vào đầu file
+      //Thêm dòng comment an toàn vào đầu file
       xmlText = '<!-- Blockly generated XML file. Safe for download. -->\n' + xmlText;
 
       // Tạo Blob và link “tạm” để trigger download
