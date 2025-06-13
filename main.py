@@ -116,7 +116,7 @@ def run_python_code(code):
             terminal_pid = list(new_pids)[0] if new_pids else None
 
         else:  # Linux
-            linux_terminal_process = subprocess.Popen(['lxterminal', '-e',f'bash -c "python3 {temp_file}; rm {temp_file}; exec bash"'])
+            linux_terminal_process = subprocess.Popen(['lxterminal', '-e',f'bash -c "sudo python3 {temp_file}; rm {temp_file}; exec bash"'])
 
         return "", ""
 
