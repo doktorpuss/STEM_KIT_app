@@ -147,7 +147,7 @@ def run_code():
 
 @app.route('/stop', methods=['POST'])
 def stop_code():
-    global terminal_pid
+    global terminal_pid,linux_terminal_process
 
     if (sys.platform == 'win32') and terminal_pid:
         try:
