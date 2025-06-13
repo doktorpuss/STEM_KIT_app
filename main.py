@@ -26,6 +26,7 @@ output_queue = queue.Queue()
 
 # Global variable store terminal process
 terminal_pid = None
+linux_terminal_process = None
 
 class FileDialogHandler(QObject):
     save_requested = pyqtSignal(str)
@@ -88,7 +89,7 @@ def serve(path):
     return send_from_directory(app.static_folder, 'index.html')
 
 def run_python_code(code):
-    global terminal_pid
+    global terminal_pid,linux_terminal_process
 
     if sys.platform == 'win32':
         temp_file = "./temp_code.py"
@@ -115,18 +116,7 @@ def run_python_code(code):
             terminal_pid = list(new_pids)[0] if new_pids else None
 
         else:  # Linux
-            before_pids = set(p.pid for p in psutil.process_iter(['name']) if 'lxterminal' in p.info['name'])
-
-            subprocess.Popen([
-                'lxterminal', '-e',
-                f'bash -c "python3 {temp_file}; rm {temp_file}; exec bash"'
-            ])
-
-            time.sleep(1)
-
-            after_pids = set(p.pid for p in psutil.process_iter(['name']) if 'lxterminal' in p.info['name'])
-            new_pids = after_pids - before_pids
-            terminal_pid = list(new_pids)[0] if new_pids else None
+            linux_terminal_process = subprocess.Popen(['lxterminal', '-e',f'bash -c "python3 {temp_file}; rm {temp_file}; exec bash"'])
 
         return "", ""
 
@@ -159,7 +149,7 @@ def run_code():
 def stop_code():
     global terminal_pid
 
-    if terminal_pid:
+    if (sys.platform == 'win32') and terminal_pid:
         try:
             p = psutil.Process(terminal_pid)
             for child in p.children(recursive=True):
@@ -169,6 +159,14 @@ def stop_code():
             return jsonify({'status': 'success', 'message': 'Terminal process stopped'})
         except Exception as e:
             return jsonify({'status': 'error', 'message': str(e)})
+    elif (sys.platform == 'linux') and (linux_terminal_process):
+        try:
+            linux_terminal_process.terminate()
+            linux_terminal_process.wait(timeout=2)
+            linux_terminal_process = None
+            return jsonify({'status': 'success', 'message': 'lxterminal stopped'})
+        except Exception as e:
+            return jsonify({'status': 'error', 'message': f'Failed to stop terminal: {str(e)}'})
     else:
         return jsonify({'status': 'error', 'message': 'No active terminal process'})
 
