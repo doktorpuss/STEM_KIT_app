@@ -40,7 +40,7 @@ pip install flask flask-cors PyQt6 PyQt6-WebEngine psutil
 4. Clone or download the source code:
 ```bash
 git clone <repository_url>
-cd pi_app
+cd STEM_KIT_app
 ```
 
 5. Install React dependencies:
@@ -92,7 +92,7 @@ sudo apt install python3-pyqt6 python3-pyqt6.qtwebengine
 5. Clone or download the source code:
 ```bash
 git clone <repository_url>
-cd pi_app
+cd STEM_KIT_app
 ```
 
 6. Install React dependencies:
@@ -144,7 +144,7 @@ pip3 install flask flask-cors PyQt6
 5. Clone or download the source code:
 ```bash
 git clone <repository_url>
-cd pi_app
+cd STEM_KIT_app
 ```
 
 6. Install React dependencies:
